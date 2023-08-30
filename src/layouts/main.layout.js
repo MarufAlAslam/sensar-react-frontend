@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
   return (
-    <div className="flex justify-between items-start bg-[#4d44b5]">
+    <div className="flex justify-between items-start">
       <div className="lg:w-[250px] md:w-full sidebar-holder">
         <Sidebar />
       </div>

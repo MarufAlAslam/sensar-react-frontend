@@ -55,9 +55,12 @@ const Customers = () => {
             Newest <FaCaretDown className="text-xl" />
           </p>
 
-          <button className="btn-blue flex justify-center items-center gap-2 px-5 py-3">
+          <Link
+            to={"/customer/add-new"}
+            className="btn-blue flex justify-center items-center gap-2 px-5 py-3"
+          >
             <FaPlus /> <span>Customer</span>
-          </button>
+          </Link>
         </div>
       </div>
 

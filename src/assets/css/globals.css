@@ -36,3 +36,17 @@
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
+
+.bg-blue {
+  background: #303972;
+}
+
+/* add companies */
+input[type="file"] {
+  display: none;
+}
+
+label.logo-uploader {
+  border: 1px dashed black;
+  padding: 30px;
+}
