@@ -9,7 +9,7 @@
 }
 .sidebar a.active,
 .sidebar a:hover {
-  background: white;
+  background: #f3f4ff;
 }
 .sidebar a.active span,
 .sidebar a:hover span {
@@ -18,4 +18,21 @@
 .sidebar a.active img,
 .sidebar a:hover img {
   filter: invert(100%);
+}
+
+/* customers */
+.text-blue {
+  color: #303972;
+}
+
+.btn-blue {
+  background: #303972;
+  color: #fff;
+  border-radius: 50px;
+  padding: 10px 20px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
