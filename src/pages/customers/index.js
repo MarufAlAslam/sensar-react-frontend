@@ -8,6 +8,7 @@ import {
   FaUser,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import AllCustomers from "../../components/customers";
 
 const Customers = () => {
   return (
@@ -40,7 +41,7 @@ const Customers = () => {
         </div>
       </div>
 
-      <div className="flex mt-7 justify-between items-center">
+      <div className="flex my-7 justify-between items-center">
         <form
           action=""
           className="search flex justify-between items-center gap-3 bg-white px-6 py-3 rounded-full"
@@ -59,6 +60,8 @@ const Customers = () => {
           </button>
         </div>
       </div>
+
+      <AllCustomers />
     </div>
   );
 };

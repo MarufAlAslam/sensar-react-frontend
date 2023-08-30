@@ -75,7 +75,7 @@ const Sidebar = () => {
     },
   ];
   return (
-    <div className="bg-[#4d44b5] p-[30px] pr-0 min-h-screen sidebar">
+    <div className="bg-[#4d44b5] p-[30px] pr-0 h-full min-h-screen sidebar">
       <div className="text-center pr-[30px]">
         <img src={logo} alt="logo" className="block mx-auto mb-10" />
       </div>
