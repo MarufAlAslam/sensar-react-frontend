@@ -1,0 +1,21 @@
+.pinkish {
+  color: #c1bbeb;
+}
+.sidebar a {
+  padding-left: 25px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 50px 0 0 50px;
+}
+.sidebar a.active,
+.sidebar a:hover {
+  background: white;
+}
+.sidebar a.active span,
+.sidebar a:hover span {
+  color: #4d44b5;
+}
+.sidebar a.active img,
+.sidebar a:hover img {
+  filter: invert(100%);
+}
