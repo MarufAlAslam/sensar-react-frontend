@@ -50,3 +50,8 @@ label.logo-uploader {
   border: 1px dashed black;
   padding: 30px;
 }
+
+/* dashboard */
+.stat-table th {
+  text-align: center;
+}
