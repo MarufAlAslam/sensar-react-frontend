@@ -3,6 +3,7 @@ import MainLayout from "../layouts/main.layout";
 import Customers from "../pages/customers";
 import AddNewCustomer from "../pages/add-new";
 import Dashboard from "../pages/dashboard";
+import Projects from "../pages/projects";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/customer/add-new",
         element: <AddNewCustomer />,
+      },
+      {
+        path: "/projects",
+        element: <Projects />,
       },
       {
         path: "*",

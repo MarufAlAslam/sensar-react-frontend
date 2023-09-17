@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { Dropdown } from "antd";
 import React from "react";
 import { FaEllipsisH, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { Dropdown } from "antd";
 
 const items = [
   {
@@ -13,18 +13,42 @@ const items = [
         rel="noopener noreferrer"
         href="https://www.antgroup.com"
       >
-        View / Edit Profile
+        View
       </a>
     ),
   },
   {
     key: "2",
+    label: (
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.aliyun.com"
+      >
+        Edit Product
+      </a>
+    ),
+  },
+  {
+    key: "3",
+    label: (
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.luohanacademy.com"
+      >
+        Status Proof
+      </a>
+    ),
+  },
+  {
+    key: "4",
     danger: true,
     label: "Delete",
   },
 ];
 
-const CustomerCard = ({ customer }) => {
+const ProjectCard = ({ customer }) => {
   return (
     <div className="p-[20px] bg-white rounded-[10px] text-center">
       <div className="text-right">
@@ -63,4 +87,4 @@ const CustomerCard = ({ customer }) => {
   );
 };
 
-export default CustomerCard;
+export default ProjectCard;
