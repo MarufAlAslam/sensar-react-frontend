@@ -1,9 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/main.layout";
 import Customers from "../pages/customers";
-import AddNewCustomer from "../pages/add-new";
+import AddNewCustomer from "../pages/add-new-customer";
 import Dashboard from "../pages/dashboard";
 import Projects from "../pages/projects";
+import AddNewProject from "../pages/add-new-project";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/projects",
         element: <Projects />,
+      },
+      {
+        path: "/projects/add-new",
+        element: <AddNewProject />,
       },
       {
         path: "*",

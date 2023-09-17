@@ -57,10 +57,10 @@ const Projects = () => {
           </select>
 
           <Link
-            to={"/customer/add-new"}
+            to={"/projects/add-new"}
             className="btn-blue flex justify-center items-center gap-2 px-5 py-3"
           >
-            <FaPlus /> <span>Customer</span>
+            <FaPlus /> <span>Project</span>
           </Link>
         </div>
       </div>

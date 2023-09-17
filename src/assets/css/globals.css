@@ -75,3 +75,8 @@ label.logo-uploader {
 .stat-table th {
   text-align: center;
 }
+
+/* projects */
+button.btn-blue.px-10 {
+  padding: 15px 60px !important;
+}
