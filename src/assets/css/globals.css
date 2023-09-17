@@ -1,6 +1,26 @@
 .pinkish {
   color: #c1bbeb;
 }
+body,
+html {
+  height: 100vh;
+  overflow: hidden;
+}
+.sidebar {
+  height: 100vh;
+  overflow-y: scroll;
+}
+.main {
+  height: 100vh;
+  overflow-y: scroll;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+* {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
 .sidebar a {
   padding-left: 25px;
   padding-top: 20px;

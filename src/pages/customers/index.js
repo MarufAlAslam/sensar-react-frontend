@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  FaBell,
-  FaCaretDown,
-  FaCog,
-  FaPlus,
-  FaSearch,
-  FaUser,
-} from "react-icons/fa";
+import { FaBell, FaCog, FaPlus, FaSearch, FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import AllCustomers from "../../components/customers";
 
@@ -51,9 +44,17 @@ const Customers = () => {
         </form>
 
         <div className="right text-end flex justify-end items-center gap-7">
-          <p className="text-blue flex justify-start items-center gap-2">
+          {/* <p className="text-blue flex justify-start items-center gap-2">
             Newest <FaCaretDown className="text-xl" />
-          </p>
+          </p> */}
+          <select
+            className="text-blue bg-transparent outline-none shadow-none border-none flex justify-start items-center gap-2"
+            name=""
+            id=""
+          >
+            <option value="Newest">Newest</option>
+            <option value="Oldest">Oldest</option>
+          </select>
 
           <Link
             to={"/customer/add-new"}
