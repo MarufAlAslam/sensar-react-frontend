@@ -80,3 +80,9 @@ label.logo-uploader {
 button.btn-blue.px-10 {
   padding: 15px 60px !important;
 }
+.ant-table-wrapper.text-center * {
+  text-align: center !important;
+}
+.ant-table-wrapper.text-center .text-left {
+  text-align: left !important;
+}

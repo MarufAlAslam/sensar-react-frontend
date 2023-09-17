@@ -1,8 +1,12 @@
 import React from "react";
 import { FaBell, FaCog, FaUser } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const AddNewProject = () => {
+  const navigate = useNavigate();
+  const gotoStep2 = () => {
+    navigate("/projects/add-new/step-2");
+  };
   return (
     <div>
       <div className="flex justify-between items-center">
@@ -155,7 +159,13 @@ const AddNewProject = () => {
           </div>
 
           <div className="text-center mt-10">
-            <button className="btn-blue px-10">Next</button>
+            <button
+              onClick={gotoStep2}
+              type="button"
+              className="btn-blue px-10"
+            >
+              Next
+            </button>
           </div>
         </form>
       </div>

@@ -5,6 +5,8 @@ import AddNewCustomer from "../pages/add-new-customer";
 import Dashboard from "../pages/dashboard";
 import Projects from "../pages/projects";
 import AddNewProject from "../pages/add-new-project";
+import Step2 from "../pages/add-new-project/step2";
+import Step3 from "../pages/add-new-project/step3";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +32,14 @@ const router = createBrowserRouter([
       {
         path: "/projects/add-new",
         element: <AddNewProject />,
+      },
+      {
+        path: "/projects/add-new/step-2",
+        element: <Step2 />,
+      },
+      {
+        path: "/projects/add-new/step-3",
+        element: <Step3 />,
       },
       {
         path: "*",
