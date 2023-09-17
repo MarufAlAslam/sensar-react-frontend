@@ -7,6 +7,7 @@ import Projects from "../pages/projects";
 import AddNewProject from "../pages/add-new-project";
 import Step2 from "../pages/add-new-project/step2";
 import Step3 from "../pages/add-new-project/step3";
+import Products from "../pages/products";
 
 const router = createBrowserRouter([
   {
@@ -42,8 +43,12 @@ const router = createBrowserRouter([
         element: <Step3 />,
       },
       {
+        path: "/products",
+        element: <Products />,
+      },
+      {
         path: "*",
-        element: <h2>Page Not Yet Added</h2>,
+        element: <h2>Page Not Found</h2>,
       },
     ],
   },
