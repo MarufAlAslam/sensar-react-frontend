@@ -57,7 +57,7 @@ const Materials = () => {
           </select>
 
           <Link
-            to={"/projects/add-new"}
+            to={"/materials/add-new"}
             className="btn-blue flex justify-center items-center gap-2 px-5 py-3"
           >
             <FaPlus /> <span>Material</span>

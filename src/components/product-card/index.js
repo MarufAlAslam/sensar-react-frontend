@@ -8,11 +8,7 @@ const items = [
   {
     key: "1",
     label: (
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://www.antgroup.com"
-      >
+      <a target="_blank" rel="noopener noreferrer" href="/">
         View
       </a>
     ),
@@ -20,11 +16,7 @@ const items = [
   {
     key: "2",
     label: (
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://www.aliyun.com"
-      >
+      <a target="_blank" rel="noopener noreferrer" href="/">
         Edit Product
       </a>
     ),
@@ -32,11 +24,7 @@ const items = [
   {
     key: "3",
     label: (
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://www.luohanacademy.com"
-      >
+      <a target="_blank" rel="noopener noreferrer" href="/">
         Status Proof
       </a>
     ),
@@ -71,7 +59,7 @@ const ProductCard = ({ customer }) => {
 
       <div className="links w-full mt-5 flex gap-4 justify-center items-center">
         <Link
-          to={"tel:" + customer.phone}
+          to={"/products/" + customer.id}
           className="customer-link flex rounded-full justify-center items-center w-[40px] h-[40px] bg-[#4d44b5] text-white"
         >
           <FaChevronRight />

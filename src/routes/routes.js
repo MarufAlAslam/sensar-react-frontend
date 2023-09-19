@@ -9,6 +9,8 @@ import Step2 from "../pages/add-new-project/step2";
 import Step3 from "../pages/add-new-project/step3";
 import Products from "../pages/products";
 import Materials from "../pages/materials";
+import ProductDetailsPage from "../pages/product-details";
+import AddNewProduct from "../pages/add-new-product";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +48,14 @@ const router = createBrowserRouter([
       {
         path: "/products",
         element: <Products />,
+      },
+      {
+        path: "/products/:id",
+        element: <ProductDetailsPage />,
+      },
+      {
+        path: "/products/add-new",
+        element: <AddNewProduct />,
       },
       {
         path: "/material",

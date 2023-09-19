@@ -62,13 +62,13 @@ const Sidebar = () => {
       link: "/message",
     },
     {
-      id: 8,
+      id: 9,
       name: "Products",
       icon: message,
       link: "/products",
     },
     {
-      id: 9,
+      id: 10,
       name: "Material",
       icon: material,
       link: "/material",
@@ -84,7 +84,6 @@ const Sidebar = () => {
           <li key={item.id} className="mb-1">
             <NavLink
               to={item.link}
-              activeClassName="active"
               className={"flex justify-start items-center"}
             >
               <img

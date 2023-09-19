@@ -7,11 +7,7 @@ const items = [
   {
     key: "1",
     label: (
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://www.antgroup.com"
-      >
+      <a target="_blank" rel="noopener noreferrer" href="/">
         View
       </a>
     ),
@@ -19,11 +15,7 @@ const items = [
   {
     key: "2",
     label: (
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://www.aliyun.com"
-      >
+      <a target="_blank" rel="noopener noreferrer" href="/">
         Edit Product
       </a>
     ),
@@ -31,11 +23,7 @@ const items = [
   {
     key: "3",
     label: (
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://www.luohanacademy.com"
-      >
+      <a target="_blank" rel="noopener noreferrer" href="/">
         Status Proof
       </a>
     ),

@@ -1,28 +1,13 @@
 import React from "react";
-
-import product1 from "../../assets/img/product1.png";
-import product2 from "../../assets/img/product2.png";
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
-import ProductCard from "../product-card";
+import CollectionCard from "../collection-card";
 
-const AllProducts = () => {
-  const customers = [
-    {
-      id: 1,
-      logo: product1,
-      name: "Name Supplier",
-    },
-    {
-      id: 2,
-      logo: product2,
-      name: "Name Supplier",
-    },
-  ];
+const ProductDetails = ({ collections }) => {
   return (
     <>
       <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-[20px]">
-        {customers.map((customer) => (
-          <ProductCard customer={customer} key={customer.id} />
+        {collections.map((customer) => (
+          <CollectionCard customer={customer} key={customer.id} />
         ))}
       </div>
       <div className="flex w-full mt-5 justify-between items-center">
@@ -52,4 +37,4 @@ const AllProducts = () => {
   );
 };
 
-export default AllProducts;
+export default ProductDetails;

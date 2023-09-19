@@ -86,3 +86,9 @@ button.btn-blue.px-10 {
 .ant-table-wrapper.text-center .text-left {
   text-align: left !important;
 }
+.filterBtn.active {
+  font-weight: bold;
+}
+.filterBtn {
+  color: #303972;
+}

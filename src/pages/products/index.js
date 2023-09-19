@@ -57,7 +57,7 @@ const Products = () => {
           </select>
 
           <Link
-            to={"/projects/add-new"}
+            to={"/products/add-new"}
             className="btn-blue flex justify-center items-center gap-2 px-5 py-3"
           >
             <FaPlus /> <span>Product</span>

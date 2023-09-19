@@ -1,26 +1,42 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { Dropdown } from "antd";
 import React from "react";
-import { FaEllipsisH, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
+import { FaChevronRight, FaEllipsisH } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { Dropdown } from "antd";
 
 const items = [
   {
     key: "1",
     label: (
       <a target="_blank" rel="noopener noreferrer" href="/">
-        View / Edit Profile
+        View
       </a>
     ),
   },
   {
     key: "2",
+    label: (
+      <a target="_blank" rel="noopener noreferrer" href="/">
+        Edit Collection
+      </a>
+    ),
+  },
+  {
+    key: "3",
+    label: (
+      <a target="_blank" rel="noopener noreferrer" href="/">
+        Status Proof
+      </a>
+    ),
+  },
+  {
+    key: "4",
     danger: true,
     label: "Delete",
   },
 ];
 
-const CustomerCard = ({ customer }) => {
+const CollectionCard = ({ customer }) => {
   return (
     <div className="p-[20px] bg-white rounded-[10px] text-center">
       <div className="text-right">
@@ -37,26 +53,24 @@ const CustomerCard = ({ customer }) => {
           </a>
         </Dropdown>
       </div>
-      <img src={customer.logo} className="block mx-auto mb-5 w-[80px]" alt="" />
+      <img
+        src={customer.image}
+        className="block mx-auto mb-5 w-[80px]"
+        alt=""
+      />
       <p className="text-blue text-lg font-bold">{customer.name}</p>
       <p className="text-sm text-[#a098ae]">{customer.provider}</p>
 
       <div className="links w-full mt-5 flex gap-4 justify-center items-center">
         <Link
-          to={"tel:" + customer.phone}
+          to={"/products/collection/" + customer.id}
           className="customer-link flex rounded-full justify-center items-center w-[40px] h-[40px] bg-[#4d44b5] text-white"
         >
-          <FaPhoneAlt />
-        </Link>
-        <Link
-          to={"tel:" + customer.phone}
-          className="customer-link flex rounded-full justify-center items-center w-[40px] h-[40px] bg-[#4d44b5] text-white"
-        >
-          <FaEnvelope />
+          <FaChevronRight />
         </Link>
       </div>
     </div>
   );
 };
 
-export default CustomerCard;
+export default CollectionCard;
