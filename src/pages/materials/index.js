@@ -1,7 +1,7 @@
 import React from "react";
 import { FaBell, FaCog, FaPlus, FaSearch, FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import AllProducts from "../../components/products";
+import AllMaterials from "../../components/all-materials";
 
 const Materials = () => {
   return (
@@ -57,7 +57,7 @@ const Materials = () => {
           </select>
 
           <Link
-            to={"/materials/add-new"}
+            to={"/material/add-new"}
             className="btn-blue flex justify-center items-center gap-2 px-5 py-3"
           >
             <FaPlus /> <span>Material</span>
@@ -65,7 +65,7 @@ const Materials = () => {
         </div>
       </div>
 
-      <AllProducts />
+      <AllMaterials />
     </div>
   );
 };
