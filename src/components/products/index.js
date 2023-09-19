@@ -25,7 +25,7 @@ const AllProducts = () => {
           <ProductCard customer={customer} key={customer.id} />
         ))}
       </div>
-      <div className="flex w-full mt-5 justify-between items-center">
+      <div className="flex md:flex-row flex-col md:gap-0 gap-3 md:mb-0 mb-5  w-full mt-5 justify-between items-center">
         <p className="text-sm pinkish">
           Showing <span className="text-blue">1-5</span> from{" "}
           <span className="text-blue">100</span> data

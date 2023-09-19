@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const AddNewMaterial = () => {
   return (
     <div>
-      <div className="flex justify-between items-center">
+      <div className="md:flex hidden justify-between items-center">
         <h2 className="text-blue text-3xl font-bold">Add Single Material</h2>
         <div className="actions text-right flex justify-end items-center gap-8">
           <button className="btn relative action-btn w-[50px] h-[50px] flex justify-center items-center text-[#a098ae] bg-white rounded-full">
@@ -38,7 +38,7 @@ const AddNewMaterial = () => {
           <p className="text-xl text-white">Product Details</p>
         </div>
         <form action="" className="form-body bg-white p-8 rounded-b-[10px]">
-          <div className="flex gap-5 justify-between items-start">
+          <div className="flex md:flex-row flex-col gap-5 justify-between items-start">
             <div className="lg:w-[2/12] md:w-1/2 w-full">
               <p className="text-blue font-bold">Photo Material *</p>
               <label

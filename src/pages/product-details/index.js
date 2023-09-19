@@ -83,7 +83,7 @@ const ProductDetailsPage = () => {
   }, []);
   return (
     <div className="customers">
-      <div className="flex justify-between items-center">
+      <div className="md:flex hidden justify-between items-center">
         <h2 className="text-blue text-3xl font-bold">Products</h2>
         <div className="actions text-right flex justify-end items-center gap-8">
           <button className="btn relative action-btn w-[50px] h-[50px] flex justify-center items-center text-[#a098ae] bg-white rounded-full">
@@ -111,7 +111,7 @@ const ProductDetailsPage = () => {
         </div>
       </div>
 
-      <div className="flex my-7 justify-between items-center">
+      <div className="flex md:flex-row flex-col-reverse md:gap-0 gap-3 md:p-0 p-3 md:my-7 justify-between items-center">
         <form
           action=""
           className="search flex justify-between items-center gap-3 bg-white px-6 py-3 rounded-full"
@@ -142,7 +142,7 @@ const ProductDetailsPage = () => {
         </div>
       </div>
 
-      <div className="filters mb-10 flex justify-center items-center gap-[15px]">
+      <div className="filters mb-10 flex flex-wrap justify-center items-center gap-[15px]">
         <button className="btn filterBtn active">All</button>
         <span className="text-blue">|</span>
         <button className="btn filterBtn">Workstation/Desk</button>

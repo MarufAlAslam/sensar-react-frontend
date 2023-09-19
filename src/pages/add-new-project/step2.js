@@ -277,7 +277,7 @@ const Step2 = () => {
   ];
   return (
     <div>
-      <div className="flex justify-between items-center">
+      <div className="md:flex hidden justify-between items-center">
         <h2 className="text-blue text-3xl font-bold">Request quote</h2>
         <div className="actions text-right flex justify-end items-center gap-8">
           <button className="btn relative action-btn w-[50px] h-[50px] flex justify-center items-center text-[#a098ae] bg-white rounded-full">
@@ -331,11 +331,13 @@ const Step2 = () => {
                 <FaPlus /> <span>Custom Product</span>
               </button>
             </div>
-            <Table
-              dataSource={dataSource}
-              className="text-center"
-              columns={columns}
-            />
+            <div className="overflow-x-auto">
+              <Table
+                dataSource={dataSource}
+                className="text-center md:w-full w-[400%]"
+                columns={columns}
+              />
+            </div>
             ;
           </div>
 
