@@ -3,6 +3,7 @@ import { Dropdown } from "antd";
 import React from "react";
 import { FaEllipsisH, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import customer1 from "../../assets/img/customer1.png";
 
 const items = [
   {
@@ -17,8 +18,19 @@ const items = [
     key: "2",
     danger: true,
     label: "Delete",
+    // get the exact id of the customer and pass it to the handleDelete function
   },
 ];
+
+// const handleDelete = (id) => {
+//   fetch("http://localhost:8000/api/v1/customers/" + id, {
+//     method: "DELETE",
+//   })
+//     .then((res) => res.json())
+//     .then((res) => {
+//       console.log(res);
+//     });
+// };
 
 const CustomerCard = ({ customer }) => {
   return (
@@ -37,9 +49,11 @@ const CustomerCard = ({ customer }) => {
           </a>
         </Dropdown>
       </div>
-      <img src={customer.logo} className="block mx-auto mb-5 w-[80px]" alt="" />
-      <p className="text-blue text-lg font-bold">{customer.name}</p>
-      <p className="text-sm text-[#a098ae]">{customer.provider}</p>
+      <img src={customer1} className="block mx-auto mb-5 w-[80px]" alt="" />
+      <p className="text-blue text-lg font-bold">{customer.companyName}</p>
+      <p className="text-sm text-[#a098ae]">
+        {customer.firstName + " " + customer.lastName}
+      </p>
 
       <div className="links w-full mt-5 flex gap-4 justify-center items-center">
         <Link
@@ -49,7 +63,7 @@ const CustomerCard = ({ customer }) => {
           <FaPhoneAlt />
         </Link>
         <Link
-          to={"tel:" + customer.phone}
+          to={"mailto:" + customer.email}
           className="customer-link flex rounded-full justify-center items-center w-[40px] h-[40px] bg-[#4d44b5] text-white"
         >
           <FaEnvelope />

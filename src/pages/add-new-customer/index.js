@@ -1,8 +1,54 @@
 import React from "react";
 import { FaBell, FaCog, FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const AddNewCustomer = () => {
+  const handleAddNewCustomer = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+
+    const logo = form.logo.files[0];
+    const companyName = form.companyName.value;
+    const firstName = form.firstName.value;
+    const phone = form.phone.value;
+    const address = form.address.value;
+    const email = form.email.value;
+    const lastName = form.lastName.value;
+    const country = form.country.value;
+    const province = form.province.value;
+
+    const data = {
+      logo,
+      companyName,
+      firstName,
+      lastName,
+      phone,
+      email,
+      address,
+      country,
+      province,
+    };
+
+    fetch("http://localhost:8000/api/v1/create-customer", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        Swal.fire({
+          title: "Success!",
+          text: "Customer has been added successfully!",
+          icon: "success",
+          confirmButtonText: "Okay",
+        });
+        form.reset();
+      });
+  };
   return (
     <div>
       <div className="md:flex hidden justify-between items-center">
@@ -37,7 +83,11 @@ const AddNewCustomer = () => {
         <div className="form-header bg-[#4D43B5] py-2 px-8 rounded-t-[10px]">
           <p className="text-xl text-white">Customer Details</p>
         </div>
-        <form action="" className="form-body bg-white p-8 rounded-b-[10px]">
+        <form
+          onSubmit={handleAddNewCustomer}
+          action=""
+          className="form-body bg-white p-8 rounded-b-[10px]"
+        >
           <div className="flex md:flex-row flex-col gap-5 justify-between items-start">
             <div className="lg:w-[2/12] md:w-1/2 w-full">
               <p className="text-blue font-bold">Logo Company *</p>
@@ -45,7 +95,7 @@ const AddNewCustomer = () => {
                 htmlFor="logo"
                 className="logo-uploader block text-center mt-4"
               >
-                <input type="file" name="" id="logo" />
+                <input type="file" name="logo" id="logo" />
                 <span className="text-sm text-gray-400">
                   Drag and drop or click here to select file
                 </span>
@@ -58,7 +108,7 @@ const AddNewCustomer = () => {
                   type="text"
                   className="w-full p-2 border rounded"
                   placeholder="Samantha"
-                  name=""
+                  name="companyName"
                   required
                   id=""
                 />
@@ -71,7 +121,7 @@ const AddNewCustomer = () => {
                   type="text"
                   className="w-full p-2 border rounded"
                   placeholder="Jakarta"
-                  name=""
+                  name="firstName"
                   required
                   id=""
                 />
@@ -82,7 +132,7 @@ const AddNewCustomer = () => {
                   type="text"
                   className="w-full p-2 border rounded"
                   placeholder="+1234567890"
-                  name=""
+                  name="phone"
                   required
                   id=""
                 />
@@ -92,8 +142,8 @@ const AddNewCustomer = () => {
                 <input
                   type="text"
                   className="w-full p-2 border rounded"
-                  placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod "
-                  name=""
+                  placeholder="Address"
+                  name="address"
                   required
                   id=""
                 />
@@ -106,7 +156,7 @@ const AddNewCustomer = () => {
                   type="text"
                   className="w-full p-2 border rounded"
                   placeholder="william@mail.com"
-                  name=""
+                  name="email"
                   required
                   id=""
                 />
@@ -117,7 +167,7 @@ const AddNewCustomer = () => {
                   type="text"
                   className="w-full p-2 border rounded"
                   placeholder="Mana William"
-                  name=""
+                  name="lastName"
                   required
                   id=""
                 />
@@ -127,8 +177,8 @@ const AddNewCustomer = () => {
                 <input
                   type="text"
                   className="w-full p-2 border rounded"
-                  placeholder="+1234567890"
-                  name=""
+                  placeholder="United States"
+                  name="country"
                   required
                   id=""
                 />
@@ -138,13 +188,22 @@ const AddNewCustomer = () => {
                 <input
                   type="text"
                   className="w-full p-2 border rounded"
-                  placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod "
-                  name=""
+                  placeholder="Province "
+                  name="province"
                   required
                   id=""
                 />
               </div>
             </div>
+          </div>
+
+          <div className="text-right mt-7">
+            <button
+              type="submit"
+              className="btn bg-[#4D43B5] text-white px-8 py-2 rounded"
+            >
+              Save
+            </button>
           </div>
         </form>
       </div>
