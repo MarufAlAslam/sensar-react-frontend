@@ -23,7 +23,7 @@ const items = [
 ];
 
 // const handleDelete = (id) => {
-//   fetch("http://localhost:8000/api/v1/customers/" + id, {
+//   fetch("https://sensar.vercel.app/api/v1/customers/" + id, {
 //     method: "DELETE",
 //   })
 //     .then((res) => res.json())

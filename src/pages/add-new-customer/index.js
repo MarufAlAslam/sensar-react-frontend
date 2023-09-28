@@ -31,7 +31,7 @@ const AddNewCustomer = () => {
       province,
     };
 
-    fetch("http://localhost:8000/api/v1/create-customer", {
+    fetch("https://sensar.vercel.app/api/v1/create-customer", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

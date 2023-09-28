@@ -6,7 +6,7 @@ const AllCustomers = () => {
   const [customers, setCustomers] = React.useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/v1/customers")
+    fetch("https://sensar.vercel.app/api/v1/customers")
       .then((res) => res.json())
       .then((res) => {
         setCustomers(res);
