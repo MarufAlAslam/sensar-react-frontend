@@ -15,6 +15,8 @@ import MaterialsDetails from "../pages/material-details";
 import AddNewMaterial from "../pages/add-new-material";
 import Supplier from "../pages/supplier";
 import AddNewSupplier from "../pages/add-new-supplier";
+import Categories from "../pages/categories";
+import AddNewCategory from "../pages/add-new-category";
 
 const router = createBrowserRouter([
   {
@@ -80,6 +82,14 @@ const router = createBrowserRouter([
       {
         path: "/material/add-new",
         element: <AddNewMaterial />,
+      },
+      {
+        path: "/material/categories",
+        element: <Categories />,
+      },
+      {
+        path: "/material/categories/add-new",
+        element: <AddNewCategory />,
       },
       {
         path: "*",

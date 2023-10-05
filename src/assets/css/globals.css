@@ -56,6 +56,16 @@ html {
 .text-blue {
   color: #303972;
 }
+.ant-collapse-header {
+  flex-direction: row-reverse;
+}
+.btn-blue.rounded-none {
+  border-radius: 0;
+}
+.ant-collapse-content.ant-collapse-content-active {
+  background: #80808024;
+  border: unset;
+}
 
 .btn-blue {
   background: #303972;
