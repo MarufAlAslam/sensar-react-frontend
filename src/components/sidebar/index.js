@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../../assets/img/logo.png";
 import dashboard from "../../assets/img/home.png";
 import factory from "../../assets/img/factory.png";
-// import customer from "../../assets/img/customer.png";
+import customer from "../../assets/img/teacher.png";
 import projects from "../../assets/img/projects.png";
 import invoices from "../../assets/img/invoices.png";
 import quotes from "../../assets/img/quotes.png";
@@ -21,14 +21,14 @@ const Sidebar = () => {
     },
     {
       id: 2,
-      name: "Factory",
+      name: "Supplier",
       icon: factory,
-      link: "/factory",
+      link: "/supplier",
     },
     {
       id: 3,
       name: "Customer",
-      icon: factory,
+      icon: customer,
       link: "/customer",
     },
     {
