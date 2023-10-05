@@ -1,8 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React, { useEffect } from "react";
 import { FaChevronRight, FaEllipsisH } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Dropdown } from "antd";
+import product1 from "../../assets/img/product1.png";
 
 const items = [
   {
@@ -36,7 +37,24 @@ const items = [
   },
 ];
 
-const ProductCard = ({ customer }) => {
+const ProductCard = ({ product }) => {
+  const [supplier, setSupplier] = React.useState([]);
+  const [loading, setLoading] = React.useState(true);
+
+  const supplierId = product.supplier;
+  console.log(supplierId);
+  useEffect(() => {
+    fetch("https://sensar.vercel.app/api/v1/supplier/" + supplierId)
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        setSupplier(res);
+        setLoading(false);
+      });
+  }, [supplierId]);
+
+  !loading && console.log(supplier);
+
   return (
     <div className="p-[20px] bg-white rounded-[10px] text-center">
       <div className="text-right">
@@ -53,13 +71,15 @@ const ProductCard = ({ customer }) => {
           </a>
         </Dropdown>
       </div>
-      <img src={customer.logo} className="block mx-auto mb-5 w-[80px]" alt="" />
-      <p className="text-blue text-lg font-bold">{customer.name}</p>
-      <p className="text-sm text-[#a098ae]">{customer.provider}</p>
+      <img src={product1} className="block mx-auto mb-5 w-[80px]" alt="" />
+      <p className="text-blue text-lg font-bold">{product.productName}</p>
+      <p className="text-sm text-[#a098ae]">
+        {supplier.firstName + " " + supplier.lastName}
+      </p>
 
       <div className="links w-full mt-5 flex gap-4 justify-center items-center">
         <Link
-          to={"/products/" + customer.id}
+          to={"/products/" + product._id}
           className="customer-link flex rounded-full justify-center items-center w-[40px] h-[40px] bg-[#4d44b5] text-white"
         >
           <FaChevronRight />

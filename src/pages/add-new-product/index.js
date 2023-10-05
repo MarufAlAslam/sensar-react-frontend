@@ -1,8 +1,80 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaBell, FaCog, FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const AddNewProduct = () => {
+  const [collections, setCollections] = useState([]);
+  const [suppliers, setSuppliers] = useState([]);
+  const handleAddNewProduduct = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+
+    const logo = form.logo.files[0];
+    const productName = form.productName.value;
+    const reference = form.reference.value;
+    const supplier = form.supplier.value;
+    const collection = form.collection.value;
+    const measurement = form.measurement.value;
+    const price = form.price.value;
+
+    const data = {
+      logo,
+      productName,
+      reference,
+      supplier,
+      collection,
+      measurement,
+      price,
+    };
+
+    fetch("https://sensar.vercel.app/api/v1/create-product", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        Swal.fire({
+          title: "Success!",
+          text: "Product has been added successfully!",
+          icon: "success",
+          confirmButtonText: "Okay",
+        });
+        form.reset();
+      });
+  };
+
+  useEffect(() => {
+    fetch("https://sensar.vercel.app/api/v1/customers", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+
+      .then((res) => {
+        setCollections(res);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch("https://sensar.vercel.app/api/v1/suppliers", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+
+      .then((res) => {
+        setSuppliers(res);
+      });
+  }, []);
   return (
     <div>
       <div className="md:flex hidden justify-between items-center">
@@ -37,7 +109,11 @@ const AddNewProduct = () => {
         <div className="form-header bg-[#4D43B5] py-2 px-8 rounded-t-[10px]">
           <p className="text-xl text-white">Product Details</p>
         </div>
-        <form action="" className="form-body bg-white p-8 rounded-b-[10px]">
+        <form
+          onSubmit={handleAddNewProduduct}
+          action=""
+          className="form-body bg-white p-8 rounded-b-[10px]"
+        >
           <div className="flex md:flex-row flex-col gap-5 justify-between items-start">
             <div className="lg:w-[2/12] md:w-1/2 w-full">
               <p className="text-blue font-bold">Photo Product *</p>
@@ -45,7 +121,7 @@ const AddNewProduct = () => {
                 htmlFor="logo"
                 className="logo-uploader block text-center mt-4"
               >
-                <input type="file" name="" id="logo" />
+                <input type="file" name="logo" id="logo" />
                 <span className="text-sm text-gray-400">
                   Drag and drop or click here to select file
                 </span>
@@ -57,8 +133,8 @@ const AddNewProduct = () => {
                 <input
                   type="text"
                   className="w-full p-2 border rounded"
-                  placeholder="Samantha"
-                  name=""
+                  placeholder="Product Name"
+                  name="productName"
                   required
                   id=""
                 />
@@ -68,28 +144,38 @@ const AddNewProduct = () => {
                 <input
                   type="text"
                   className="w-full p-2 border rounded"
-                  placeholder="Jakarta"
-                  name=""
+                  placeholder="Product Reference"
+                  name="reference"
                   required
                   id=""
                 />
               </div>
               <div className="form-group mt-6">
                 <p className="text-blue font-bold mb-4">Supplier *</p>
-                <select name="" className="w-full p-2 border rounded" id="">
-                  <option value="MEET&CO">MEET&CO</option>
-                  <option value="MEET&CO">JANNO</option>
-                  <option value="MEET&CO">BRANDOM</option>
+                <select
+                  name="supplier"
+                  className="w-full p-2 border rounded"
+                  id=""
+                >
+                  {suppliers.map((supplier) => (
+                    <option value={supplier._id}>{supplier.companyName}</option>
+                  ))}
                 </select>
               </div>
             </div>
             <div className="lg:w-[5/12] md:w-[1/2] w-full">
               <div className="form-group">
                 <p className="text-blue font-bold mb-4">Collection *</p>
-                <select name="" className="w-full p-2 border rounded" id="">
-                  <option value="MEET&CO">MEET&CO</option>
-                  <option value="MEET&CO">JANNO</option>
-                  <option value="MEET&CO">BRANDOM</option>
+                <select
+                  name="collection"
+                  className="w-full p-2 border rounded"
+                  id=""
+                >
+                  {collections.map((collection) => (
+                    <option value={collection._id}>
+                      {collection.companyName}
+                    </option>
+                  ))}
                 </select>
               </div>
               <div className="form-group mt-6">
@@ -99,8 +185,8 @@ const AddNewProduct = () => {
                 <input
                   type="text"
                   className="w-full p-2 border rounded"
-                  placeholder="Mana William"
-                  name=""
+                  placeholder="Measurement"
+                  name="measurement"
                   required
                   id=""
                 />
@@ -110,8 +196,8 @@ const AddNewProduct = () => {
                 <input
                   type="text"
                   className="w-full p-2 border rounded"
-                  placeholder="+1234567890"
-                  name=""
+                  placeholder="Price"
+                  name="price"
                   required
                   id=""
                 />
