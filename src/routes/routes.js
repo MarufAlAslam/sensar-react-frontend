@@ -13,6 +13,8 @@ import ProductDetailsPage from "../pages/product-details";
 import AddNewProduct from "../pages/add-new-product";
 import MaterialsDetails from "../pages/material-details";
 import AddNewMaterial from "../pages/add-new-material";
+import Supplier from "../pages/supplier";
+import AddNewSupplier from "../pages/add-new-supplier";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +32,14 @@ const router = createBrowserRouter([
       {
         path: "/customer/add-new",
         element: <AddNewCustomer />,
+      },
+      {
+        path: "/supplier",
+        element: <Supplier />,
+      },
+      {
+        path: "/supplier/add-new",
+        element: <AddNewSupplier />,
       },
       {
         path: "/projects",
