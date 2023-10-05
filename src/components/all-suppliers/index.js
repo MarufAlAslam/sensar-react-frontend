@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import CustomerCard from "../customer-card";
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
 import SupplierCard from "../supplier-card";
 

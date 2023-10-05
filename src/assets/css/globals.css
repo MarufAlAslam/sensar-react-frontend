@@ -39,6 +39,18 @@ html {
 .sidebar a:hover img {
   filter: invert(100%);
 }
+.submenu-item a {
+  padding: 3px 10px;
+  margin: 10px 0;
+}
+.submenu-item a.active,
+.submenu-item a:hover {
+  background: #cdccd7;
+}
+.submenu-item a.active span,
+.submenu-item a:hover span {
+  color: #fff;
+}
 
 /* customers */
 .text-blue {

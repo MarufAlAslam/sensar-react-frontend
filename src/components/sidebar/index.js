@@ -17,60 +17,86 @@ const Sidebar = () => {
       id: 1,
       name: "Dashboard",
       icon: dashboard,
+      submenu: [],
       link: "/",
     },
     {
       id: 2,
       name: "Supplier",
       icon: factory,
+      submenu: [],
       link: "/supplier",
     },
     {
       id: 3,
       name: "Customer",
       icon: customer,
+      submenu: [],
       link: "/customer",
     },
     {
       id: 4,
       name: "Projects",
       icon: projects,
+      submenu: [],
       link: "/projects",
     },
     {
       id: 5,
       name: "Invoices",
       icon: invoices,
+      submenu: [],
       link: "/invoices",
     },
     {
       id: 6,
       name: "Quotes",
       icon: quotes,
+      submenu: [],
       link: "/quotes",
     },
     {
       id: 7,
       name: "User",
       icon: user,
+      submenu: [],
       link: "/user",
     },
     {
       id: 8,
       name: "Message",
       icon: message,
+      submenu: [],
       link: "/message",
     },
     {
       id: 9,
       name: "Products",
       icon: message,
+      submenu: [],
       link: "/products",
     },
     {
       id: 10,
       name: "Material",
       icon: material,
+      submenu: [
+        {
+          id: 1,
+          name: "Add Single Material",
+          link: "/material/add-single",
+        },
+        {
+          id: 2,
+          name: "Add Multiple Material",
+          link: "/material/add-multiple",
+        },
+        {
+          id: 3,
+          name: "Categories",
+          link: "/material/categories",
+        },
+      ],
       link: "/material",
     },
   ];
@@ -79,6 +105,7 @@ const Sidebar = () => {
       <div className="text-center pr-[30px]">
         <img src={logo} alt="logo" className="block mx-auto mb-10" />
       </div>
+
       <ul>
         {menuItems.map((item) => (
           <li key={item.id} className="mb-1">
@@ -93,6 +120,20 @@ const Sidebar = () => {
               />
               <span className="block pinkish">{item.name}</span>
             </NavLink>
+            {item.submenu.length > 0 && (
+              <ul className="ml-5">
+                {item.submenu.map((sub) => (
+                  <li key={sub.id} className="mb-1 submenu-item">
+                    <NavLink
+                      to={sub.link}
+                      className={"flex justify-start items-center"}
+                    >
+                      <span className="block text-white">{sub.name}</span>
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+            )}
           </li>
         ))}
       </ul>
