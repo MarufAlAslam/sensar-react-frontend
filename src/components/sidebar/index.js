@@ -83,16 +83,21 @@ const Sidebar = () => {
       submenu: [
         {
           id: 1,
+          name: "All Material",
+          link: "/material/all-materials",
+        },
+        {
+          id: 2,
           name: "Add Single Material",
           link: "/material/add-single",
         },
         {
-          id: 2,
+          id: 3,
           name: "Add Multiple Material",
           link: "/material/add-multiple",
         },
         {
-          id: 3,
+          id: 4,
           name: "Categories",
           link: "/material/categories",
         },
@@ -109,30 +114,50 @@ const Sidebar = () => {
       <ul>
         {menuItems.map((item) => (
           <li key={item.id} className="mb-1">
-            <NavLink
-              to={item.link}
-              className={"flex justify-start items-center"}
-            >
-              <img
-                src={item.icon}
-                alt={item.name}
-                className="block w-[20px] mr-4"
-              />
-              <span className="block pinkish">{item.name}</span>
-            </NavLink>
-            {item.submenu.length > 0 && (
-              <ul className="ml-5">
-                {item.submenu.map((sub) => (
-                  <li key={sub.id} className="mb-1 submenu-item">
-                    <NavLink
-                      to={sub.link}
-                      className={"flex justify-start items-center"}
-                    >
-                      <span className="block text-white">{sub.name}</span>
-                    </NavLink>
-                  </li>
-                ))}
-              </ul>
+            {item.submenu.length > 0 ? (
+              <>
+                <button
+                  className={"flex justify-start items-center w-full"}
+                  onClick={(e) => {
+                    e.target.classList.toggle("active");
+                    const submenu = document.querySelector(
+                      `.submenu-${item.id}`
+                    );
+                    submenu.classList.toggle("active");
+                  }}
+                >
+                  <img
+                    src={item.icon}
+                    alt={item.name}
+                    className="block w-[20px] mr-4"
+                  />
+                  <span className="block pinkish">{item.name}</span>
+                </button>
+                <ul className={`ml-5 submenu submenu-${item.id}`}>
+                  {item.submenu.map((sub) => (
+                    <li key={sub.id} className="mb-1 submenu-item">
+                      <NavLink
+                        to={sub.link}
+                        className={"flex justify-start items-center"}
+                      >
+                        <span className="block text-white">{sub.name}</span>
+                      </NavLink>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : (
+              <NavLink
+                to={item.link}
+                className={"flex justify-start items-center sidebar-link"}
+              >
+                <img
+                  src={item.icon}
+                  alt={item.name}
+                  className="block w-[20px] mr-4"
+                />
+                <span className="block pinkish">{item.name}</span>
+              </NavLink>
             )}
           </li>
         ))}

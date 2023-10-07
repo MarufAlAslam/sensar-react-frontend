@@ -21,25 +21,31 @@ html {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
-.sidebar a {
-  padding-left: 25px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+.sidebar a, .sidebar button {
+  padding-left: 25px !important;
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
   border-radius: 50px 0 0 50px;
 }
 .sidebar a.active,
+.sidebar button.active,
+.sidebar button:hover,
 .sidebar a:hover {
   background: #f3f4ff;
 }
 .sidebar a.active span,
-.sidebar a:hover span {
+.sidebar button.active span,
+.sidebar a:hover span
+.sidebar button:hover span {
   color: #4d44b5;
 }
 .sidebar a.active img,
-.sidebar a:hover img {
+.sidebar a:hover img,
+.sidebar button:hover img
+.sidebar button.active img {
   filter: invert(100%);
 }
-.submenu-item a {
+.submenu-item a, .sidebar button {
   padding: 3px 10px;
   margin: 10px 0;
 }
@@ -50,6 +56,16 @@ html {
 .submenu-item a.active span,
 .submenu-item a:hover span {
   color: #fff;
+}
+
+.submenu{
+  display: none;
+}
+.submenu.active{
+  display: block;
+}
+.submenu-item a {
+  padding: 3px 10px !important;
 }
 
 /* customers */

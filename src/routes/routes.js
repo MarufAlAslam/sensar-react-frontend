@@ -76,6 +76,10 @@ const router = createBrowserRouter([
         element: <Materials />,
       },
       {
+        path: "/material/all-materials",
+        element: <Materials />,
+      },
+      {
         path: "/material/:id",
         element: <MaterialsDetails />,
       },
