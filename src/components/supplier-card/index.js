@@ -3,7 +3,8 @@ import { Dropdown } from "antd";
 import React from "react";
 import { FaEllipsisH, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import customer1 from "../../assets/img/customer1.png";
+// import customer1 from "../../assets/img/customer1.png";
+import noLogo from "../../assets/img/no_logo.png";
 
 const items = [
   {
@@ -49,7 +50,7 @@ const SupplierCard = ({ customer }) => {
           </a>
         </Dropdown>
       </div>
-      <img src={customer1} className="block mx-auto mb-5 w-[80px]" alt="" />
+      <img src={customer.logo !== "" ? customer.logo : noLogo} className="block mx-auto mb-5 w-[80px]" alt="" />
       <p className="text-blue text-lg font-bold">{customer.companyName}</p>
       <p className="text-sm text-[#a098ae] mb-2">
         {customer.firstName + " " + customer.lastName}
