@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import AllMaterials from "../../components/all-materials";
 
 const Materials = () => {
+  
   return (
     <div className="customers">
       <div className="md:flex hidden justify-between items-center">

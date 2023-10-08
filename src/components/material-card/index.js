@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { FaChevronRight, FaEllipsisH } from "react-icons/fa";
@@ -36,7 +37,22 @@ const items = [
   },
 ];
 
-const MaterialCard = ({ customer }) => {
+const MaterialCard = ({ material }) => {
+  const [supplier, setSupplier] = React.useState(null);
+  const [loading, setLoading] = React.useState(false);
+  const getSupplierDetails = () => {
+    setLoading(true);
+    fetch("https://sensar.vercel.app/api/v1/supplier/" + material.supplier)
+      .then((res) => res.json())
+      .then((res) => {
+        setSupplier(res);
+        setLoading(false);
+      });
+  };
+
+  React.useEffect(() => {
+    getSupplierDetails();
+  }, []);
   return (
     <div className="p-[20px] bg-white rounded-[10px] text-center">
       <div className="text-right">
@@ -53,13 +69,19 @@ const MaterialCard = ({ customer }) => {
           </a>
         </Dropdown>
       </div>
-      <img src={customer.logo} className="block mx-auto mb-5 w-[80px]" alt="" />
-      <p className="text-blue text-lg font-bold">{customer.name}</p>
-      <p className="text-sm text-[#a098ae]">{customer.provider}</p>
+      <img
+        src={material.img}
+        className="block mx-auto mb-5 w-[80px] h-[80px] object-cover rounded-full"
+        alt=""
+      />
+      <p className="text-blue text-lg font-bold">{material.name}</p>
+      {!loading && supplier && (
+        <p className="text-sm text-[#a098ae]">{supplier.companyName}</p>
+      )}
 
       <div className="links w-full mt-5 flex gap-4 justify-center items-center">
         <Link
-          to={"/material/" + customer.id}
+          to={"/material/" + material._id}
           className="customer-link flex rounded-full justify-center items-center w-[40px] h-[40px] bg-[#4d44b5] text-white"
         >
           <FaChevronRight />

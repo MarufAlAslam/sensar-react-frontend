@@ -88,6 +88,10 @@ const router = createBrowserRouter([
         element: <AddNewMaterial />,
       },
       {
+        path: "/material/add-single",
+        element: <AddNewMaterial />,
+      },
+      {
         path: "/material/categories",
         element: <Categories />,
       },

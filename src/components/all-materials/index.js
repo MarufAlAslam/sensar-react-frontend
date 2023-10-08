@@ -1,28 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-import product1 from "../../assets/img/product1.png";
-import product2 from "../../assets/img/product2.png";
+// import product1 from "../../assets/img/product1.png";
+// import product2 from "../../assets/img/product2.png";
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
 import MaterialCard from "../material-card";
 
 const AllMaterials = () => {
-  const customers = [
-    {
-      id: 1,
-      logo: product1,
-      name: "Name Supplier",
-    },
-    {
-      id: 2,
-      logo: product2,
-      name: "Name Supplier",
-    },
-  ];
+  const [materials, setMaterials] = React.useState([]);
+  useEffect(() => {
+    fetch("https://sensar.vercel.app/api/v1/materials")
+      .then((res) => res.json())
+      .then((res) => {
+        setMaterials(res);
+      });
+  }, []);
+  // const customers = [
+  //   {
+  //     id: 1,
+  //     logo: product1,
+  //     name: "Name Supplier",
+  //   },
+  //   {
+  //     id: 2,
+  //     logo: product2,
+  //     name: "Name Supplier",
+  //   },
+  // ];
   return (
     <>
       <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-[20px]">
-        {customers.map((customer) => (
-          <MaterialCard customer={customer} key={customer.id} />
+        {materials.map((material) => (
+          <MaterialCard material={material} key={material._id} />
         ))}
       </div>
       <div className="flex md:flex-row flex-col md:gap-0 gap-3 md:mb-0 mb-5 w-full mt-5 justify-between items-center">
