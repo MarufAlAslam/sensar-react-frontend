@@ -49,7 +49,7 @@ const AddNewProduct = () => {
   };
 
   useEffect(() => {
-    fetch("https://sensar.vercel.app/api/v1/customers", {
+    fetch("https://sensar.vercel.app/api/v1/categories", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -173,7 +173,7 @@ const AddNewProduct = () => {
                 >
                   {collections.map((collection) => (
                     <option value={collection._id}>
-                      {collection.companyName}
+                      {collection.categoryName}
                     </option>
                   ))}
                 </select>

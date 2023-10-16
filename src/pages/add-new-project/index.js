@@ -53,7 +53,7 @@ const AddNewProject = () => {
                   <input
                     type="text"
                     className="w-full p-2 border rounded"
-                    placeholder="Samantha"
+                    placeholder="Company Name"
                     name=""
                     required
                     id=""
@@ -64,7 +64,7 @@ const AddNewProject = () => {
                   <input
                     type="text"
                     className="w-full p-2 border rounded"
-                    placeholder="Jakarta"
+                    placeholder="Name Project"
                     name=""
                     required
                     id=""
@@ -77,7 +77,7 @@ const AddNewProject = () => {
                   <input
                     type="text"
                     className="w-full p-2 border rounded"
-                    placeholder="+1234567890"
+                    placeholder="Address"
                     name=""
                     required
                     id=""
@@ -88,7 +88,7 @@ const AddNewProject = () => {
                   <input
                     type="text"
                     className="w-full p-2 border rounded"
-                    placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod "
+                    placeholder="Name Province"
                     name=""
                     required
                     id=""
@@ -100,21 +100,26 @@ const AddNewProject = () => {
                   <p className="text-blue font-bold mb-4">
                     Supplier we will use it * (Multiple choise optional)
                   </p>
-                  <input
+                  {/* <input
                     type="text"
                     className="w-full p-2 border rounded"
                     placeholder="william@mail.com"
                     name=""
                     required
                     id=""
-                  />
+                  /> */}
+                  <select name="" className="w-full border rounded p-2" id="">
+                    <option value="supplier 1">Supplier 1</option>
+                    <option value="supplier 2">Supplier 2</option>
+                    <option value="supplier 3">Supplier 3</option>
+                  </select>
                 </div>
                 <div className="form-group mt-6">
                   <p className="text-blue font-bold mb-4">
                     Date Start project / Date End project*
                   </p>
                   <input
-                    type="text"
+                    type="date"
                     className="w-full p-2 border rounded"
                     placeholder="Mana William"
                     name=""
@@ -127,7 +132,7 @@ const AddNewProject = () => {
                   <input
                     type="text"
                     className="w-full p-2 border rounded"
-                    placeholder="+1234567890"
+                    placeholder="Name Country"
                     name=""
                     required
                     id=""
@@ -135,19 +140,24 @@ const AddNewProject = () => {
                 </div>
                 <div className="form-group mt-6">
                   <p className="text-blue font-bold mb-4">Category Product</p>
-                  <input
+                  {/* <input
                     type="text"
                     className="w-full p-2 border rounded"
                     placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod "
                     name=""
                     required
                     id=""
-                  />
+                  /> */}
+                  <select name="" className="w-full p-2 border rounded" id="">
+                    <option value="category 1">Category 1</option>
+                    <option value="category 2">Category 2</option>
+                    <option value="category 3">Category 3</option>
+                  </select>
                 </div>
               </div>
             </div>
             <div className="mt-6">
-              <p className="text-blue font-bold mb-4">Category Product</p>
+              <p className="text-blue font-bold mb-4">Description Project</p>
               <textarea
                 className="w-full p-2 border rounded resize-none"
                 name=""
