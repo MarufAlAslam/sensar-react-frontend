@@ -17,6 +17,9 @@ import Supplier from "../pages/supplier";
 import AddNewSupplier from "../pages/add-new-supplier";
 import Categories from "../pages/categories";
 import AddNewCategory from "../pages/add-new-category";
+import CustomProduct from "../pages/custom-product";
+import User from "../pages/user";
+import AddNewUser from "../pages/add-new-user";
 
 const router = createBrowserRouter([
   {
@@ -28,7 +31,7 @@ const router = createBrowserRouter([
         element: <Dashboard />,
       },
       {
-        path: "/customer",
+        path: "/customer/all",
         element: <Customers />,
       },
       {
@@ -36,7 +39,7 @@ const router = createBrowserRouter([
         element: <AddNewCustomer />,
       },
       {
-        path: "/supplier",
+        path: "/supplier/all",
         element: <Supplier />,
       },
       {
@@ -44,7 +47,7 @@ const router = createBrowserRouter([
         element: <AddNewSupplier />,
       },
       {
-        path: "/projects",
+        path: "/projects/all",
         element: <Projects />,
       },
       {
@@ -60,7 +63,12 @@ const router = createBrowserRouter([
         element: <Step3 />,
       },
       {
-        path: "/products",
+        path: "/projects/add-new/custom-product",
+        element: <CustomProduct />,
+      },
+
+      {
+        path: "/products/all-products",
         element: <Products />,
       },
       {
@@ -98,6 +106,18 @@ const router = createBrowserRouter([
       {
         path: "/material/categories/add-new",
         element: <AddNewCategory />,
+      },
+      {
+        path: "/users/all",
+        element: <User />,
+      },
+      {
+        path: "/users/add-new",
+        element: <AddNewUser />,
+      },
+      {
+        path: "/users/profile",
+        element: <User />,
       },
       {
         path: "*",

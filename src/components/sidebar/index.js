@@ -24,21 +24,54 @@ const Sidebar = () => {
       id: 2,
       name: "Supplier",
       icon: factory,
-      submenu: [],
+      submenu: [
+        {
+          id: 1,
+          name: "All Supplier",
+          link: "/supplier/all",
+        },
+        {
+          id: 2,
+          name: "Add Supplier",
+          link: "/supplier/add-new",
+        },
+      ],
       link: "/supplier",
     },
     {
       id: 3,
       name: "Customer",
       icon: customer,
-      submenu: [],
+      submenu: [
+        {
+          id: 1,
+          name: "All Customer",
+          link: "/customer/all",
+        },
+        {
+          id: 2,
+          name: "Add Customer",
+          link: "/customer/add-new",
+        },
+      ],
       link: "/customer",
     },
     {
       id: 4,
       name: "Projects",
       icon: projects,
-      submenu: [],
+      submenu: [
+        {
+          id: 1,
+          name: "All Projects",
+          link: "/projects/all",
+        },
+        {
+          id: 2,
+          name: "Add Projects",
+          link: "/projects/add-new",
+        },
+      ],
       link: "/projects",
     },
     {
@@ -59,7 +92,23 @@ const Sidebar = () => {
       id: 7,
       name: "User",
       icon: user,
-      submenu: [],
+      submenu: [
+        {
+          id: 1,
+          name: "All Users",
+          link: "/users/all",
+        },
+        {
+          id: 2,
+          name: "Add New",
+          link: "/users/add-new",
+        },
+        {
+          id: 2,
+          name: "Profile",
+          link: "/users/profile",
+        },
+      ],
       link: "/user",
     },
     {
@@ -73,7 +122,28 @@ const Sidebar = () => {
       id: 9,
       name: "Products",
       icon: message,
-      submenu: [],
+      submenu: [
+        {
+          id: 1,
+          name: "All Products",
+          link: "/products/all-products",
+        },
+        {
+          id: 2,
+          name: "Add Single Product",
+          link: "/products/add-new",
+        },
+        {
+          id: 3,
+          name: "Add Multiple Products",
+          link: "/products/add-multiple",
+        },
+        {
+          id: 4,
+          name: "Categories",
+          link: "/material/categories",
+        },
+      ],
       link: "/products",
     },
     {

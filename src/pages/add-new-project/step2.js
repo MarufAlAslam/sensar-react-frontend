@@ -327,9 +327,12 @@ const Step2 = () => {
               <button className="btn-blue flex justify-center items-center gap-2 px-5 py-3">
                 <FaPlus /> <span>Product</span>
               </button>
-              <button className="btn-blue flex justify-center items-center gap-2 px-5 py-3">
+              <Link
+                to={"/projects/add-new/custom-product"}
+                className="btn-blue flex justify-center items-center gap-2 px-5 py-3"
+              >
                 <FaPlus /> <span>Custom Product</span>
-              </button>
+              </Link>
             </div>
             <div className="overflow-x-auto">
               <Table
