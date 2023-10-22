@@ -79,7 +79,7 @@ const Sidebar = () => {
       name: "Invoices",
       icon: invoices,
       submenu: [],
-      link: "/invoices",
+      link: "/invoice",
     },
     {
       id: 6,

@@ -21,6 +21,7 @@ import CustomProduct from "../pages/custom-product";
 import User from "../pages/user";
 import AddNewUser from "../pages/add-new-user";
 import UserProfile from "../pages/user-profile";
+import Invoice from "../pages/invoice";
 
 const router = createBrowserRouter([
   {
@@ -123,6 +124,10 @@ const router = createBrowserRouter([
       {
         path: "/users/profile",
         element: <UserProfile />,
+      },
+      {
+        path: "/invoice",
+        element: <Invoice />,
       },
       {
         path: "*",
