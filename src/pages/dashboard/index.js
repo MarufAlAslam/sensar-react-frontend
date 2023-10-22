@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { FaBell, FaCog, FaEllipsisH, FaSearch, FaUser } from "react-icons/fa";
+import { FaBell, FaCog, FaSearch, FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import StatCards from "../../components/stat-cards";
 import GetCustomerName from "../../utils/getCustomerName";
