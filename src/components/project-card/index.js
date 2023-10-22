@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
-import { FaChevronDown, FaEllipsisH } from "react-icons/fa";
+import React, { useEffect } from "react";
+import { FaEllipsisH } from "react-icons/fa";
 import { Dropdown } from "antd";
+import noLogo from "../../assets/img/no_logo.png";
 
 const items = [
   {
@@ -35,7 +36,47 @@ const items = [
   },
 ];
 
-const ProjectCard = ({ customer }) => {
+const ProjectCard = ({ project }) => {
+  console.log("project", project.data);
+  const [customer, setCustomer] = React.useState([]);
+  const [supplier, setSupplier] = React.useState([]);
+
+  useEffect(() => {
+    fetch(
+      `https://sensar.vercel.app/api/v1/customer/${project?.data?.companyName}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
+      .then((res) => res.json())
+
+      .then((res) => {
+        setCustomer(res);
+      });
+  }, [project.data.companyName]);
+
+  useEffect(() => {
+    fetch(
+      `https://sensar.vercel.app/api/v1/supplier/${project?.data?.supplierName}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
+      .then((res) => res.json())
+
+      .then((res) => {
+        setSupplier(res);
+      });
+  }, [project.data.supplierName]);
+
+  console.log("customer", customer);
+
   return (
     <div className="p-[20px] bg-white rounded-[10px] text-center">
       <div className="text-right">
@@ -52,15 +93,23 @@ const ProjectCard = ({ customer }) => {
           </a>
         </Dropdown>
       </div>
-      <img src={customer.logo} className="block mx-auto mb-5 w-[80px]" alt="" />
+      <img
+        src={customer.logo === "" ? noLogo : customer.logo}
+        className="block mx-auto mb-5 w-[80px]"
+        alt=""
+      />
       <p className="text-sm text-[#a098ae]">customer</p>
-      <p className="text-blue text-lg font-bold">{customer.name}</p>
+      <p className="text-blue text-lg font-bold">{customer.companyName}</p>
       <p className="text-sm text-[#a098ae]">supplier</p>
-      <img src={customer.supplier} className="w-[30px] mx-auto mt-2" alt="" />
+      <img
+        src={supplier.logo === "" ? noLogo : supplier.logo}
+        className="w-[30px] mx-auto mt-2"
+        alt=""
+      />
 
-      <p className="text-orange-600 mt-3 flex text-sm justify-center items-center gap-1">
-        {customer.status} <FaChevronDown />
-      </p>
+      {/* <p className="text-orange-600 mt-3 flex text-sm justify-center items-center gap-1">
+        {project.status} <FaChevronDown />
+      </p> */}
     </div>
   );
 };
