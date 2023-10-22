@@ -6,15 +6,31 @@ const AllCustomers = () => {
   const [customers, setCustomers] = React.useState([]);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    setLoading(true);
+  const getCustomers = () => {
     fetch("https://sensar.vercel.app/api/v1/customers")
       .then((res) => res.json())
       .then((res) => {
         setCustomers(res);
         setLoading(false);
       });
+  };
+
+  useEffect(() => {
+    setLoading(true);
+    getCustomers();
   }, []);
+
+  const deleteCard = (id) => {
+    fetch(`https://sensar.vercel.app/api/v1/customer/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        // console.log("res", res);
+        // setCustomers(customers.filter((customer) => customer.id !== id));
+        getCustomers();
+      });
+  };
 
   return (
     <>
@@ -22,7 +38,11 @@ const AllCustomers = () => {
         {loading
           ? "Loading"
           : customers.map((customer) => (
-              <CustomerCard customer={customer} key={customer.id} />
+              <CustomerCard
+                customer={customer}
+                deleteCard={deleteCard}
+                key={customer.id}
+              />
             ))}
       </div>
       {!loading && (

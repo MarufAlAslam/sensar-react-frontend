@@ -5,23 +5,6 @@ import { FaEllipsisH, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import noLogo from "../../assets/img/no_logo.png";
 
-const items = [
-  {
-    key: "1",
-    label: (
-      <a target="_blank" rel="noopener noreferrer" href="/">
-        View / Edit Profile
-      </a>
-    ),
-  },
-  {
-    key: "2",
-    danger: true,
-    label: "Delete",
-    // get the exact id of the customer and pass it to the handleDelete function
-  },
-];
-
 // const handleDelete = (id) => {
 //   fetch("https://sensar.vercel.app/api/v1/customers/" + id, {
 //     method: "DELETE",
@@ -32,7 +15,24 @@ const items = [
 //     });
 // };
 
-const CustomerCard = ({ customer }) => {
+const CustomerCard = ({ customer, deleteCard }) => {
+  const items = [
+    // {
+    //   key: "1",
+    //   label: (
+    //     <a target="_blank" rel="noopener noreferrer" href="/">
+    //       View / Edit Profile
+    //     </a>
+    //   ),
+    // },
+    {
+      key: "2",
+      danger: true,
+      label: "Delete",
+      onClick: () => deleteCard(customer._id),
+      // get the exact id of the customer and pass it to the handleDelete function
+    },
+  ];
   return (
     <div className="p-[20px] bg-white rounded-[10px] text-center">
       <div className="text-right">
@@ -49,7 +49,11 @@ const CustomerCard = ({ customer }) => {
           </a>
         </Dropdown>
       </div>
-      <img src={customer.logo !== "" ? customer.logo : noLogo} className="block mx-auto mb-5 w-[80px]" alt="" />
+      <img
+        src={customer.logo !== "" ? customer.logo : noLogo}
+        className="block mx-auto mb-5 w-[80px]"
+        alt=""
+      />
       <p className="text-blue text-lg font-bold">{customer.companyName}</p>
       <p className="text-sm text-[#a098ae]">
         {customer.firstName + " " + customer.lastName}
