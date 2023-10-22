@@ -20,6 +20,7 @@ import AddNewCategory from "../pages/add-new-category";
 import CustomProduct from "../pages/custom-product";
 import User from "../pages/user";
 import AddNewUser from "../pages/add-new-user";
+import UserProfile from "../pages/user-profile";
 
 const router = createBrowserRouter([
   {
@@ -116,8 +117,12 @@ const router = createBrowserRouter([
         element: <AddNewUser />,
       },
       {
+        path: "/users/:id",
+        element: <UserProfile />,
+      },
+      {
         path: "/users/profile",
-        element: <User />,
+        element: <UserProfile />,
       },
       {
         path: "*",

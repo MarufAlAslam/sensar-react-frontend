@@ -103,11 +103,11 @@ const Sidebar = () => {
           name: "Add New",
           link: "/users/add-new",
         },
-        {
-          id: 2,
-          name: "Profile",
-          link: "/users/profile",
-        },
+        // {
+        //   id: 2,
+        //   name: "Profile",
+        //   link: "/users/profile",
+        // },
       ],
       link: "/user",
     },

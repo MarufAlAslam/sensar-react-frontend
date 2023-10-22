@@ -33,32 +33,26 @@ const AddNewUser = () => {
     const form = e.target;
 
     const logo = logoUrl;
-    const companyName = form.companyName.value;
+    const userName = form.userName.value;
     const firstName = form.firstName.value;
-    const phone = form.phone.value;
-    const address = form.address.value;
+    const website = form.website.value;
     const email = form.email.value;
     const lastName = form.lastName.value;
-    const country = form.country.value;
-    const province = form.province.value;
-    const category = form.category.value;
-    const description = form.description.value;
+    const password = form.password.value;
+    const role = form.role.value;
 
     const data = {
       logo,
-      companyName,
+      userName,
       firstName,
       lastName,
-      phone,
+      website,
       email,
-      address,
-      country,
-      province,
-      category,
-      description,
+      password,
+      role,
     };
 
-    fetch("https://sensar.vercel.app/api/v1/create-supplier", {
+    fetch("https://sensar.vercel.app/api/v1/create-user", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -69,7 +63,7 @@ const AddNewUser = () => {
       .then((res) => {
         Swal.fire({
           title: "Success!",
-          text: "Supplier has been added successfully!",
+          text: "User has been added successfully!",
           icon: "success",
           confirmButtonText: "Okay",
         });
@@ -147,7 +141,7 @@ const AddNewUser = () => {
                   type="text"
                   className="w-full p-2 border rounded"
                   placeholder="Samantha"
-                  name="companyName"
+                  name="userName"
                   required
                   id=""
                 />
@@ -168,8 +162,8 @@ const AddNewUser = () => {
                 <input
                   type="text"
                   className="w-full p-2 border rounded"
-                  placeholder="+1234567890"
-                  name="phone"
+                  placeholder="Website"
+                  name="website"
                   required
                   id=""
                 />
@@ -204,7 +198,7 @@ const AddNewUser = () => {
                   type="password"
                   className="w-full p-2 border rounded"
                   placeholder="United States"
-                  name="country"
+                  name="password"
                   required
                   id=""
                 />
@@ -219,11 +213,7 @@ const AddNewUser = () => {
                   required
                   id=""
                 /> */}
-                <select
-                  name="province"
-                  className="w-full p-2 border rounded"
-                  id=""
-                >
+                <select name="role" className="w-full p-2 border rounded" id="">
                   <option value="administrator">Administrator</option>
                   <option value="supplier">Supplier</option>
                 </select>

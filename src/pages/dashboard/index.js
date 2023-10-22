@@ -88,7 +88,7 @@ const Dashboard = () => {
           <table className="table mt-6 stat-table lg:w-full w-[300%]">
             <thead>
               <tr>
-                <th className="text-center text-blue text-sm font-semibold">
+                <th className="text-left flex text-blue text-sm font-semibold">
                   Name Supplier
                 </th>
                 <th className="text-center text-blue text-sm font-semibold">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   FaBell,
   FaCaretLeft,
@@ -11,6 +11,20 @@ import {
 import { Link } from "react-router-dom";
 
 const User = () => {
+  const [users, setUsers] = React.useState([]);
+  useEffect(() => {
+    fetch("https://sensar.vercel.app/api/v1/users", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+
+      .then((users) => {
+        setUsers(users);
+      });
+  }, []);
   return (
     <div>
       <div className="md:flex hidden justify-between items-center">
@@ -61,46 +75,30 @@ const User = () => {
             </tr>
           </thead>
           <tbody>
-            <td className="text-blue p-3 text-left border-b">Nowfel</td>
-            <td className="text-blue p-3 text-left border-b">Nowfel Mezouar</td>
-            <td className="text-blue p-3 text-left border-b">
-              nowfel.mezouar@gmail.com
-            </td>
-            <td className="text-blue p-3 text-left border-b">Classiqube</td>
-            <td className="text-blue p-3 text-left border-b">Administrator</td>
-            <td className="text-blue p-3 text-center border-b">
-              <button className="btn p-0">
-                <FaEllipsisH />
-              </button>
-            </td>
-          </tbody>
-          <tbody>
-            <td className="text-blue p-3 text-left border-b">Nowfel</td>
-            <td className="text-blue p-3 text-left border-b">Nowfel Mezouar</td>
-            <td className="text-blue p-3 text-left border-b">
-              nowfel.mezouar@gmail.com
-            </td>
-            <td className="text-blue p-3 text-left border-b">Classiqube</td>
-            <td className="text-blue p-3 text-left border-b">Administrator</td>
-            <td className="text-blue p-3 text-center border-b">
-              <button className="btn p-0">
-                <FaEllipsisH />
-              </button>
-            </td>
-          </tbody>
-          <tbody>
-            <td className="text-blue p-3 text-left border-b">Nowfel</td>
-            <td className="text-blue p-3 text-left border-b">Nowfel Mezouar</td>
-            <td className="text-blue p-3 text-left border-b">
-              nowfel.mezouar@gmail.com
-            </td>
-            <td className="text-blue p-3 text-left border-b">Classiqube</td>
-            <td className="text-blue p-3 text-left border-b">Administrator</td>
-            <td className="text-blue p-3 text-center border-b">
-              <button className="btn p-0">
-                <FaEllipsisH />
-              </button>
-            </td>
+            {users.map((user) => (
+              <tr key={user._id}>
+                <td className="text-blue p-3 text-left border-b">
+                  <Link to={`/users/${user._id}`}>{user.userName}</Link>
+                </td>
+                <td className="text-blue p-3 text-left border-b">
+                  {user.firstName} {user.lastName}
+                </td>
+                <td className="text-blue p-3 text-left border-b">
+                  {user.email}
+                </td>
+                <td className="text-blue p-3 text-left border-b">
+                  <Link to={user.website}>{user.website}</Link>
+                </td>
+                <td className="text-blue p-3 text-left border-b">
+                  {user.role}
+                </td>
+                <td className="text-blue p-3 text-center border-b">
+                  <button>
+                    <FaEllipsisH className="text-xl text-blue" />
+                  </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
