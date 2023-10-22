@@ -21,7 +21,7 @@ const AllSupplier = () => {
   }, []);
 
   const deleteCard = (id) => {
-    fetch(`https://sensar.vercel.app/api/v1/supplier/${id}`, {
+    fetch(`https://sensar.vercel.app/api/v1/supplier/delete/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

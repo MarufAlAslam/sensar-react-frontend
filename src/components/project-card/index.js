@@ -94,15 +94,15 @@ const ProjectCard = ({ project }) => {
         </Dropdown>
       </div>
       <img
-        src={customer.logo === "" ? noLogo : customer.logo}
+        src={customer?.logo === "" ? noLogo : customer?.logo}
         className="block mx-auto mb-5 w-[80px]"
         alt=""
       />
       <p className="text-sm text-[#a098ae]">customer</p>
-      <p className="text-blue text-lg font-bold">{customer.companyName}</p>
+      <p className="text-blue text-lg font-bold">{customer?.companyName}</p>
       <p className="text-sm text-[#a098ae]">supplier</p>
       <img
-        src={supplier.logo === "" ? noLogo : supplier.logo}
+        src={supplier?.logo === "" ? noLogo : supplier?.logo}
         className="w-[30px] mx-auto mt-2"
         alt=""
       />
