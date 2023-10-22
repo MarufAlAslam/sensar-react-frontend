@@ -6,15 +6,31 @@ const AllSupplier = () => {
   const [customers, setCustomers] = React.useState([]);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    setLoading(true);
+  const getSuppliers = () => {
     fetch("https://sensar.vercel.app/api/v1/suppliers")
       .then((res) => res.json())
       .then((res) => {
         setCustomers(res);
         setLoading(false);
       });
+  };
+
+  useEffect(() => {
+    setLoading(true);
+    getSuppliers();
   }, []);
+
+  const deleteCard = (id) => {
+    fetch(`https://sensar.vercel.app/api/v1/supplier/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        // console.log("res", res);
+        // setCustomers(customers.filter((customer) => customer.id !== id));
+        getSuppliers();
+      });
+  };
 
   return (
     <>
@@ -22,7 +38,11 @@ const AllSupplier = () => {
         {loading
           ? "Loading"
           : customers.map((customer) => (
-              <SupplierCard customer={customer} key={customer.id} />
+              <SupplierCard
+                customer={customer}
+                deleteCard={deleteCard}
+                key={customer.id}
+              />
             ))}
       </div>
       {!loading && (

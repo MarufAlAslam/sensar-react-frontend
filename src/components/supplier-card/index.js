@@ -6,23 +6,6 @@ import { Link } from "react-router-dom";
 // import customer1 from "../../assets/img/customer1.png";
 import noLogo from "../../assets/img/no_logo.png";
 
-const items = [
-  {
-    key: "1",
-    label: (
-      <a target="_blank" rel="noopener noreferrer" href="/">
-        View / Edit Profile
-      </a>
-    ),
-  },
-  {
-    key: "2",
-    danger: true,
-    label: "Delete",
-    // get the exact id of the customer and pass it to the handleDelete function
-  },
-];
-
 // const handleDelete = (id) => {
 //   fetch("https://sensar.vercel.app/api/v1/customers/" + id, {
 //     method: "DELETE",
@@ -33,7 +16,25 @@ const items = [
 //     });
 // };
 
-const SupplierCard = ({ customer }) => {
+const SupplierCard = ({ customer, deleteCard }) => {
+  console.log("customer", customer);
+  const items = [
+    // {
+    //   key: "1",
+    //   label: (
+    //     <a target="_blank" rel="noopener noreferrer" href="/">
+    //       View / Edit Profile
+    //     </a>
+    //   ),
+    // },
+    {
+      key: "2",
+      danger: true,
+      label: <button onClick={() => deleteCard(customer._id)}>Delete</button>,
+      onClick: () => deleteCard(customer._id),
+      // get the exact id of the customer and pass it to the handleDelete function
+    },
+  ];
   return (
     <div className="p-[20px] bg-white rounded-[10px] text-center">
       <div className="text-right">
@@ -50,7 +51,11 @@ const SupplierCard = ({ customer }) => {
           </a>
         </Dropdown>
       </div>
-      <img src={customer.logo !== "" ? customer.logo : noLogo} className="block mx-auto mb-5 w-[80px]" alt="" />
+      <img
+        src={customer.logo !== "" ? customer.logo : noLogo}
+        className="block mx-auto mb-5 w-[80px]"
+        alt=""
+      />
       <p className="text-blue text-lg font-bold">{customer.companyName}</p>
       <p className="text-sm text-[#a098ae] mb-2">
         {customer.firstName + " " + customer.lastName}
