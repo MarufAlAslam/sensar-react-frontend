@@ -40,7 +40,7 @@ const items = [
 const ProductCard = ({ product }) => {
   const [supplierLoading, setSupplierLoading] = React.useState(true);
   const [supplier, setSupplier] = React.useState([]);
-  const [loading, setLoading] = React.useState(true);
+  // const [loading, setLoading] = React.useState(true);
 
   const supplierId = product.supplier;
   console.log(supplierId);
@@ -51,7 +51,7 @@ const ProductCard = ({ product }) => {
         console.log(res);
         setSupplier(res);
         setSupplierLoading(false);
-        setLoading(false);
+        // setLoading(false);
       });
   }, [supplierId]);
 
