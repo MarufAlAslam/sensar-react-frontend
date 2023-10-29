@@ -23,6 +23,8 @@ import AddNewUser from "../pages/add-new-user";
 import UserProfile from "../pages/user-profile";
 import Invoice from "../pages/invoice";
 import SelectProductCollection from "../pages/select-product-collection";
+import ProductCategories from "../pages/product-categories";
+import AddProductCategory from "../pages/add-product-category";
 
 const router = createBrowserRouter([
   {
@@ -85,6 +87,14 @@ const router = createBrowserRouter([
       {
         path: "/products/add-new",
         element: <AddNewProduct />,
+      },
+      {
+        path: "/products/categories",
+        element: <ProductCategories />,
+      },
+      {
+        path: "/products/categories/add-new",
+        element: <AddProductCategory />,
       },
       {
         path: "/material",

@@ -187,7 +187,7 @@ const Sidebar = () => {
         </li>
         <li>
           <NavLink
-            to="/material/categories"
+            to="/products/categories"
             className={"flex justify-start items-center sidebar-link"}
           >
             <span className="block pinkish">Categories</span>
