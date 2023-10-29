@@ -40,6 +40,7 @@ const ProjectCard = ({ project }) => {
   console.log("project", project.data);
   const [customer, setCustomer] = React.useState([]);
   const [supplier, setSupplier] = React.useState([]);
+  
 
   useEffect(() => {
     fetch(
@@ -75,7 +76,7 @@ const ProjectCard = ({ project }) => {
       });
   }, [project.data.supplierName]);
 
-  console.log("customer", customer);
+  // console.log("customer", customer);
 
   return (
     <div className="p-[20px] bg-white rounded-[10px] text-center">
@@ -94,7 +95,7 @@ const ProjectCard = ({ project }) => {
         </Dropdown>
       </div>
       <img
-        src={customer?.logo === "" ? noLogo : customer?.logo}
+        src={customer && customer?.logo === "" ? noLogo : customer?.logo}
         className="block mx-auto mb-5 w-[80px]"
         alt=""
       />
@@ -102,7 +103,7 @@ const ProjectCard = ({ project }) => {
       <p className="text-blue text-lg font-bold">{customer?.companyName}</p>
       <p className="text-sm text-[#a098ae]">supplier</p>
       <img
-        src={supplier?.logo === "" ? noLogo : supplier?.logo}
+        src={supplier && supplier?.logo === "" ? noLogo : supplier?.logo}
         className="w-[30px] mx-auto mt-2"
         alt=""
       />

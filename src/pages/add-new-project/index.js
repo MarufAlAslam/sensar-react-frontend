@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { FaBell, FaCog, FaUser } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const AddNewProject = () => {
@@ -11,6 +11,7 @@ const AddNewProject = () => {
 
   const [companies, setCompanies] = React.useState([]);
   const [suppliers, setSuppliers] = React.useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("https://sensar.vercel.app/api/v1/customers", {
@@ -73,7 +74,8 @@ const AddNewProject = () => {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log("res", res);
+        console.log("res", res.insertedId);
+        localStorage.setItem("projectId", res.insertedId);
         Swal.fire({
           title: "Success!",
           text: "Project has been added successfully!",
@@ -81,6 +83,7 @@ const AddNewProject = () => {
           confirmButtonText: "Okay",
         });
         form.reset();
+        navigate('/projects/add-new/step-2?')
       })
       .catch((error) => {
         console.log("error", error);
