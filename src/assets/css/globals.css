@@ -22,10 +22,13 @@ html {
   scrollbar-width: none; /* Firefox */
 }
 .sidebar a, .sidebar button {
-  padding-left: 25px !important;
-  padding-top: 20px !important;
-  padding-bottom: 20px !important;
+  padding-left: 30px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
   border-radius: 50px 0 0 50px;
+  margin-left: 35px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .sidebar a.active,
 .sidebar button.active,
@@ -130,6 +133,47 @@ button.btn-blue.px-10 {
 .filterBtn {
   color: #303972;
 }
+
+
+/* sidebar */
+.sidebar .ant-collapse {
+  border: unset;
+}
+.sidebar .ant-collapse-item {
+  border: unset !important;
+}
+.sidebar .ant-collapse-item {
+  border: unset !important;
+}
+.sidebar .ant-collapse-header {
+  color: white !important;
+  font-size: 16px;
+  padding: 16px 0 !important;
+  /* background: white; */
+  padding-left: 20px !important;
+  border-radius: 35px 0 0 35px;
+  margin: 5px 0;
+}
+
+.sidebar .ant-collapse-item-active .ant-collapse-header {
+  color: #4D43B5 !important;
+  font-size: 16px;
+  padding: 16px 0 !important;
+  background: white;
+  padding-left: 20px !important;
+  border-radius: 35px 0 0 35px !important;
+  margin: 5px 0;
+}
+.sidebar .ant-collapse-content-box {
+  padding: 0 !important;
+}
+.sidebar .ant-collapse-content-box img {
+  filter: invert(100%);
+}
+.sidebar .ant-collapse-content.ant-collapse-content-active {
+  background: transparent;
+  border: unset;
+} 
 
 @media screen and (max-width: 992px) {
   body,

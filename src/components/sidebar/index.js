@@ -10,168 +10,230 @@ import user from "../../assets/img/user.png";
 import message from "../../assets/img/message.png";
 import material from "../../assets/img/material.png";
 import { NavLink } from "react-router-dom";
+import { Collapse } from "antd";
 
 const Sidebar = () => {
   const menuItems = [
     {
       id: 1,
-      name: "Dashboard",
+      label: <span className="flex items-center gap-3"><img src={dashboard} className="w-[20px]" alt="" />Dashboard</span>,
       icon: dashboard,
-      submenu: [],
+      children: <ul>
+        <li>
+          <NavLink
+            to="/"
+            className={"flex justify-start items-center sidebar-link"}
+          >
+            <span className="block pinkish">Dashboard</span>
+          </NavLink>
+        </li>
+      </ul>,
       link: "/",
     },
     {
       id: 2,
-      name: "Supplier",
+      label: <span className="flex items-center gap-3"><img src={factory} className="w-[20px]" alt="" />Supplier</span>,
       icon: factory,
-      submenu: [
-        {
-          id: 1,
-          name: "All Supplier",
-          link: "/supplier/all",
-        },
-        {
-          id: 2,
-          name: "Add Supplier",
-          link: "/supplier/add-new",
-        },
-      ],
+      children: <ul>
+        <li>
+          <NavLink
+            to="/supplier/all"
+            className={"flex justify-start items-center sidebar-link"}
+          >
+            <span className="block pinkish">All Suppliers</span>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/supplier/add-new"
+            className={"flex justify-start items-center sidebar-link"}
+          >
+            <span className="block pinkish">Add Supplier</span>
+          </NavLink>
+        </li>
+      </ul>,
       link: "/supplier",
     },
     {
       id: 3,
-      name: "Customer",
+      label: <span className="flex items-center gap-3"><img src={customer} className="w-[20px]" alt="" />Customer</span>,
       icon: customer,
-      submenu: [
-        {
-          id: 1,
-          name: "All Customer",
-          link: "/customer/all",
-        },
-        {
-          id: 2,
-          name: "Add Customer",
-          link: "/customer/add-new",
-        },
-      ],
+      children: <ul>
+        <li>
+          <NavLink
+            to="/customer/all"
+            className={"flex justify-start items-center sidebar-link"}
+          >
+            <span className="block pinkish">All Customer</span>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/customer/add-new"
+            className={"flex justify-start items-center sidebar-link"}
+          >
+            <span className="block pinkish">Add Customer</span>
+          </NavLink>
+        </li>
+      </ul>,
       link: "/customer",
     },
     {
       id: 4,
-      name: "Projects",
+      label: <span className="flex items-center gap-3"><img src={projects} className="w-[20px]" alt="" />Projects</span>,
       icon: projects,
-      submenu: [
-        {
-          id: 1,
-          name: "All Projects",
-          link: "/projects/all",
-        },
-        {
-          id: 2,
-          name: "Add Projects",
-          link: "/projects/add-new",
-        },
-      ],
+      children: <ul>
+        <li>
+          <NavLink
+            to="/projects/all"
+            className={"flex justify-start items-center sidebar-link"}
+          >
+            <span className="block pinkish">All Projects</span>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/projects/add-new"
+            className={"flex justify-start items-center sidebar-link"}
+          >
+            <span className="block pinkish">Add Project</span>
+          </NavLink>
+        </li>
+      </ul>,
       link: "/projects",
     },
     {
       id: 5,
-      name: "Invoices",
+      label: <span className="flex items-center gap-3"><img src={invoices} className="w-[20px]" alt="" />Invoices</span>,
       icon: invoices,
-      submenu: [],
+      children: <ul>
+        <li>
+          <NavLink
+            to="/invoice"
+            className={"flex justify-start items-center sidebar-link"}
+          >
+            <span className="block pinkish">Invoices</span>
+          </NavLink>
+        </li>
+      </ul>,
       link: "/invoice",
     },
     {
       id: 6,
-      name: "Quotes",
+      label: <span className="flex items-center gap-3"><img src={quotes} className="w-[20px]" alt="" />Quotes</span>,
       icon: quotes,
-      submenu: [],
+      children: <ul></ul>,
       link: "/quotes",
     },
     {
       id: 7,
-      name: "User",
+      label: <span className="flex items-center gap-3"><img src={user} className="w-[20px]" alt="" />User</span>,
       icon: user,
-      submenu: [
-        {
-          id: 1,
-          name: "All Users",
-          link: "/users/all",
-        },
-        {
-          id: 2,
-          name: "Add New",
-          link: "/users/add-new",
-        },
-        // {
-        //   id: 2,
-        //   name: "Profile",
-        //   link: "/users/profile",
-        // },
-      ],
+      children: <ul>
+        <li>
+          <NavLink
+            to="/users/all"
+            className={"flex justify-start items-center sidebar-link"}
+          >
+            <span className="block pinkish">All Users</span>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/users/add-new"
+            className={"flex justify-start items-center sidebar-link"}
+          >
+            <span className="block pinkish">Add User</span>
+          </NavLink>
+        </li>
+      </ul>,
       link: "/user",
     },
     {
       id: 8,
-      name: "Message",
+      label: <span className="flex items-center gap-3"><img src={message} className="w-[20px]" alt="" />Message</span>,
       icon: message,
-      submenu: [],
+      children: <ul></ul>,
       link: "/message",
     },
     {
       id: 9,
-      name: "Products",
+      label: <span className="flex items-center gap-3"><img src={material} className="w-[20px]" alt="" />Products</span>,
       icon: message,
-      submenu: [
-        {
-          id: 1,
-          name: "All Products",
-          link: "/products/all-products",
-        },
-        {
-          id: 2,
-          name: "Add Single Product",
-          link: "/products/add-new",
-        },
-        {
-          id: 3,
-          name: "Add Multiple Products",
-          link: "/products/add-multiple",
-        },
-        {
-          id: 4,
-          name: "Categories",
-          link: "/material/categories",
-        },
-      ],
+      children: <ul>
+        <li>
+          <NavLink
+            to="/products/all-products"
+            className={"flex justify-start items-center sidebar-link"}
+          >
+            <span className="block pinkish">All Products</span>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/products/add-new"
+            className={"flex justify-start items-center sidebar-link"}
+          >
+            <span className="block pinkish">Add Single Product</span>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/products/add-multiple"
+            className={"flex justify-start items-center sidebar-link"}
+          >
+            <span className="block pinkish">Add Multiple Products</span>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/material/categories"
+            className={"flex justify-start items-center sidebar-link"}
+          >
+            <span className="block pinkish">Categories</span>
+          </NavLink>
+        </li>
+      </ul>,
       link: "/products",
     },
     {
       id: 10,
-      name: "Material",
+      label: <span className="flex items-center gap-3"><img src={factory} className="w-[20px]" alt="" />Materials</span>,
       icon: material,
-      submenu: [
-        {
-          id: 1,
-          name: "All Material",
-          link: "/material/all-materials",
-        },
-        {
-          id: 2,
-          name: "Add Single Material",
-          link: "/material/add-single",
-        },
-        {
-          id: 3,
-          name: "Add Multiple Material",
-          link: "/material/add-multiple",
-        },
-        {
-          id: 4,
-          name: "Categories",
-          link: "/material/categories",
-        },
-      ],
+      children: <ul>
+        <li>
+          <NavLink
+            to="/material/all-materials"
+            className={"flex justify-start items-center sidebar-link"}
+          >
+            <span className="block pinkish">All Material</span>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/material/add-single"
+            className={"flex justify-start items-center sidebar-link"}
+          >
+            <span className="block pinkish">Add Single Material</span>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/material/add-multiple"
+            className={"flex justify-start items-center sidebar-link"}
+          >
+            <span className="block pinkish">Add Multiple Material</span>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/material/categories"
+            className={"flex justify-start items-center sidebar-link"}
+          >
+            <span className="block pinkish">Categories</span>
+          </NavLink>
+        </li>
+      </ul>,
       link: "/material",
     },
   ];
@@ -181,19 +243,19 @@ const Sidebar = () => {
         <img src={logo} alt="logo" className="block mx-auto mb-10" />
       </div>
 
-      <ul>
+      {/* <ul>
         {menuItems.map((item) => (
           <li key={item.id} className="mb-1">
-            {item.submenu.length > 0 ? (
+            {item.children.length > 0 ? (
               <>
                 <button
                   className={"flex justify-start items-center w-full"}
                   onClick={(e) => {
                     e.target.classList.toggle("active");
-                    const submenu = document.querySelector(
-                      `.submenu-${item.id}`
+                    const children = document.querySelector(
+                      `.children-${item.id}`
                     );
-                    submenu.classList.toggle("active");
+                    children.classList.toggle("active");
                   }}
                 >
                   <img
@@ -203,9 +265,9 @@ const Sidebar = () => {
                   />
                   <span className="block pinkish">{item.name}</span>
                 </button>
-                <ul className={`ml-5 submenu submenu-${item.id}`}>
-                  {item.submenu.map((sub) => (
-                    <li key={sub.id} className="mb-1 submenu-item">
+                <ul className={`ml-5 children children-${item.id}`}>
+                  {item.children.map((sub) => (
+                    <li key={sub.id} className="mb-1 children-item">
                       <NavLink
                         to={sub.link}
                         className={"flex justify-start items-center"}
@@ -231,7 +293,9 @@ const Sidebar = () => {
             )}
           </li>
         ))}
-      </ul>
+      </ul> */}
+
+      <Collapse accordion items={menuItems} />
     </div>
   );
 };
