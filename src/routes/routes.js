@@ -22,6 +22,7 @@ import User from "../pages/user";
 import AddNewUser from "../pages/add-new-user";
 import UserProfile from "../pages/user-profile";
 import Invoice from "../pages/invoice";
+import SelectProductCollection from "../pages/select-product-collection";
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
       {
         path: "/projects/add-new",
         element: <AddNewProject />,
+      },
+      {
+        path: "/projects/add-new/collection",
+        element: <SelectProductCollection />,
       },
       {
         path: "/projects/add-new/step-2",
