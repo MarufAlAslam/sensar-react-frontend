@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CustomerCard from "../customer-card";
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const AllCustomers = () => {
   const [customers, setCustomers] = React.useState([]);
@@ -28,6 +29,12 @@ const AllCustomers = () => {
       .then((res) => {
         // console.log("res", res);
         // setCustomers(customers.filter((customer) => customer.id !== id));
+        Swal.fire({
+          title: "Success!",
+          text: "Customer deleted successfully",
+          icon: "success",
+          confirmButtonText: "Ok",
+        });
         getCustomers();
       });
   };

@@ -19,7 +19,7 @@ const GetCustomerName = ({ project }) => {
       });
   }, [project?.data.companyName]);
 
-  return <div>{customer.companyName}</div>;
+  return <div>{customer?.companyName}</div>;
 };
 
 export default GetCustomerName;

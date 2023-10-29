@@ -54,7 +54,7 @@ const CustomerCard = ({ customer, deleteCard }) => {
         className="block mx-auto mb-5 w-[80px]"
         alt=""
       />
-      <p className="text-blue text-lg font-bold">{customer.companyName}</p>
+      <p className="text-blue text-lg font-bold">{customer?.companyName}</p>
       <p className="text-sm text-[#a098ae]">
         {customer.firstName + " " + customer.lastName}
       </p>

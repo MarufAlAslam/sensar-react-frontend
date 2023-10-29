@@ -45,8 +45,8 @@ const Invoice = () => {
             >
               <select name="" className="border w-full p-3 rounded" id="">
                 {customers.map((customer) => (
-                  <option value={customer.companyName}>
-                    {customer.companyName}
+                  <option value={customer?.companyName}>
+                    {customer?.companyName}
                   </option>
                 ))}
               </select>

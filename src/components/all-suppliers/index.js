@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
 import SupplierCard from "../supplier-card";
+import Swal from "sweetalert2";
 
 const AllSupplier = () => {
   const [customers, setCustomers] = React.useState([]);
@@ -21,13 +22,19 @@ const AllSupplier = () => {
   }, []);
 
   const deleteCard = (id) => {
-    fetch(`https://sensar.vercel.app/api/v1/supplier/delete/${id}`, {
+    fetch(`https://sensar.vercel.app/api/v1/supplier/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
       .then((res) => {
         // console.log("res", res);
         // setCustomers(customers.filter((customer) => customer.id !== id));
+        Swal.fire({
+          title: "Success!",
+          text: "Supplier deleted successfully",
+          icon: "success",
+          confirmButtonText: "Ok",
+        });
         getSuppliers();
       });
   };
