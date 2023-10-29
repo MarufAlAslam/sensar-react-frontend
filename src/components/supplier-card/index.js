@@ -6,18 +6,8 @@ import { Link } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 // import customer1 from "../../assets/img/customer1.png";
 import noLogo from "../../assets/img/no_logo.png";
-import axios from "axios";
+// import axios from "axios";
 import Swal from "sweetalert2";
-
-// const handleDelete = (id) => {
-//   fetch("https://sensar.vercel.app/api/v1/customers/" + id, {
-//     method: "DELETE",
-//   })
-//     .then((res) => res.json())
-//     .then((res) => {
-//       console.log(res);
-//     });
-// };
 
 const SupplierCard = ({ customer, deleteCard }) => {
   const [editModalVisible, setEditModalVisible] = React.useState(false);
