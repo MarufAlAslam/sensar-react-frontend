@@ -3,44 +3,68 @@ import React, { useEffect } from "react";
 import { FaEllipsisH } from "react-icons/fa";
 import { Dropdown } from "antd";
 import noLogo from "../../assets/img/no_logo.png";
+import Swal from "sweetalert2";
 
-const items = [
-  {
-    key: "1",
-    label: (
-      <a target="_blank" rel="noopener noreferrer" href="/">
-        View
-      </a>
-    ),
-  },
-  {
-    key: "2",
-    label: (
-      <a target="_blank" rel="noopener noreferrer" href="/">
-        Edit Product
-      </a>
-    ),
-  },
-  {
-    key: "3",
-    label: (
-      <a target="_blank" rel="noopener noreferrer" href="/">
-        Status Proof
-      </a>
-    ),
-  },
-  {
-    key: "4",
-    danger: true,
-    label: "Delete",
-  },
-];
+
 
 const ProjectCard = ({ project }) => {
   console.log("project", project.data);
   const [customer, setCustomer] = React.useState([]);
   const [supplier, setSupplier] = React.useState([]);
-  
+
+  const deleteProject = (id) => {
+    fetch("https://sensar.vercel.app/api/v1/project/" + id, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        window.location.reload();
+        Swal.fire({
+          icon: "success",
+          title: "Project deleted successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((err) => console.log(err));
+  }
+
+  const items = [
+    {
+      key: "1",
+      label: (
+        <a target="_blank" rel="noopener noreferrer" href="/">
+          View
+        </a>
+      ),
+    },
+    {
+      key: "2",
+      label: (
+        <a target="_blank" rel="noopener noreferrer" href="/">
+          Edit Product
+        </a>
+      ),
+    },
+    {
+      key: "3",
+      label: (
+        <a target="_blank" rel="noopener noreferrer" href="/">
+          Status Proof
+        </a>
+      ),
+    },
+    {
+      key: "4",
+      danger: true,
+      label: "Delete",
+      onClick: () => {
+        deleteProject(project._id);
+      }
+    },
+  ];
+
 
   useEffect(() => {
     fetch(
