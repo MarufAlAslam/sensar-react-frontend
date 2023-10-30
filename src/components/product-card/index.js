@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { FaChevronRight, FaEllipsisH } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Dropdown } from "antd";
-import product1 from "../../assets/img/product1.png";
+// import product1 from "../../assets/img/product1.png";
 
 
 
