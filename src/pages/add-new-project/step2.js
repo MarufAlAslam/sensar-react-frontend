@@ -1,5 +1,5 @@
 // import { Table } from "antd";
-import React from "react";
+import React, { useEffect } from "react";
 import {
   FaBell,
   FaCog,
@@ -13,268 +13,26 @@ import { Link, useNavigate } from "react-router-dom";
 const Step2 = () => {
   const navigate = useNavigate();
   const gotoStep3 = () => {
+    // clear local storage
+    localStorage.removeItem("projectId");
     navigate("/projects/add-new/step-3");
   };
-  // const dataSource = [
-  //   {
-  //     key: "1",
-  //     item: 1,
-  //     file_technique: (
-  //       <>
-  //         <input type="file" id="f" />
-  //         <label
-  //           for="f"
-  //           className="w-[50px] h-[50px] m-auto flex justify-center items-center border"
-  //         >
-  //           <FaUpload className="text-blue" />
-  //         </label>
-  //       </>
-  //     ),
-  //     model_no: "Custom NM-1",
-  //     dimension: "W 2000x H1200xD600 ",
-  //     material: "Wood MDF",
-  //     color: "MGPU103",
-  //     quantity: "1",
-  //     description: (
-  //       <p className="text-xs text-left w-[200px]">
-  //         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-  //         eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum
-  //         suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
-  //         lacus vel facilisis.{" "}
-  //       </p>
-  //     ),
-  //     action: (
-  //       <div className="flex justify-center items-center gap-3">
-  //         <button className="text-white bg-red-500 w-[30px] h-[30px] flex justify-center items-center rounded-full">
-  //           <FaTimes />
-  //         </button>
-  //       </div>
-  //     ),
-  //   },
-  //   {
-  //     key: "1",
-  //     item: 1,
-  //     file_technique: (
-  //       <>
-  //         <input type="file" id="f" />
-  //         <label
-  //           for="f"
-  //           className="w-[50px] h-[50px] m-auto flex justify-center items-center border"
-  //         >
-  //           <FaUpload className="text-blue" />
-  //         </label>
-  //       </>
-  //     ),
-  //     model_no: "Custom NM-1",
-  //     dimension: "W 2000x H1200xD600 ",
-  //     material: "Wood MDF",
-  //     color: "MGPU103",
-  //     quantity: "1",
-  //     description: (
-  //       <p className="text-xs text-left w-[200px]">
-  //         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-  //         eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum
-  //         suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
-  //         lacus vel facilisis.{" "}
-  //       </p>
-  //     ),
-  //     action: (
-  //       <div className="flex justify-center items-center gap-3">
-  //         <button className="text-white bg-red-500 w-[30px] h-[30px] flex justify-center items-center rounded-full">
-  //           <FaTimes />
-  //         </button>
-  //       </div>
-  //     ),
-  //   },
-  //   {
-  //     key: "1",
-  //     item: 1,
-  //     file_technique: (
-  //       <>
-  //         <input type="file" id="f" />
-  //         <label
-  //           for="f"
-  //           className="w-[50px] h-[50px] m-auto flex justify-center items-center border"
-  //         >
-  //           <FaUpload className="text-blue" />
-  //         </label>
-  //       </>
-  //     ),
-  //     model_no: "Custom NM-1",
-  //     dimension: "W 2000x H1200xD600 ",
-  //     material: "Wood MDF",
-  //     color: "MGPU103",
-  //     quantity: "1",
-  //     description: (
-  //       <p className="text-xs text-left w-[200px]">
-  //         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-  //         eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum
-  //         suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
-  //         lacus vel facilisis.{" "}
-  //       </p>
-  //     ),
-  //     action: (
-  //       <div className="flex justify-center items-center gap-3">
-  //         <button className="text-white bg-red-500 w-[30px] h-[30px] flex justify-center items-center rounded-full">
-  //           <FaTimes />
-  //         </button>
-  //       </div>
-  //     ),
-  //   },
-  //   {
-  //     key: "1",
-  //     item: 1,
-  //     file_technique: (
-  //       <>
-  //         <input type="file" id="f" />
-  //         <label
-  //           for="f"
-  //           className="w-[50px] h-[50px] m-auto flex justify-center items-center border"
-  //         >
-  //           <FaUpload className="text-blue" />
-  //         </label>
-  //       </>
-  //     ),
-  //     model_no: "Custom NM-1",
-  //     dimension: "W 2000x H1200xD600 ",
-  //     material: "Wood MDF",
-  //     color: "MGPU103",
-  //     quantity: "1",
-  //     description: (
-  //       <p className="text-xs text-left w-[200px]">
-  //         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-  //         eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum
-  //         suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
-  //         lacus vel facilisis.{" "}
-  //       </p>
-  //     ),
-  //     action: (
-  //       <div className="flex justify-center items-center gap-3">
-  //         <button className="text-white bg-red-500 w-[30px] h-[30px] flex justify-center items-center rounded-full">
-  //           <FaTimes />
-  //         </button>
-  //       </div>
-  //     ),
-  //   },
-  //   {
-  //     key: "1",
-  //     item: 1,
-  //     file_technique: (
-  //       <>
-  //         <input type="file" id="f" />
-  //         <label
-  //           for="f"
-  //           className="w-[50px] h-[50px] m-auto flex justify-center items-center border"
-  //         >
-  //           <FaUpload className="text-blue" />
-  //         </label>
-  //       </>
-  //     ),
-  //     model_no: "Custom NM-1",
-  //     dimension: "W 2000x H1200xD600 ",
-  //     material: "Wood MDF",
-  //     color: "MGPU103",
-  //     quantity: "1",
-  //     description: (
-  //       <p className="text-xs text-left w-[200px]">
-  //         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-  //         eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum
-  //         suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
-  //         lacus vel facilisis.{" "}
-  //       </p>
-  //     ),
-  //     action: (
-  //       <div className="flex justify-center items-center gap-3">
-  //         <button className="text-white bg-red-500 w-[30px] h-[30px] flex justify-center items-center rounded-full">
-  //           <FaTimes />
-  //         </button>
-  //       </div>
-  //     ),
-  //   },
-  //   {
-  //     key: "1",
-  //     item: 1,
-  //     file_technique: (
-  //       <>
-  //         <input type="file" id="f" />
-  //         <label
-  //           for="f"
-  //           className="w-[50px] h-[50px] m-auto flex justify-center items-center border"
-  //         >
-  //           <FaUpload className="text-blue" />
-  //         </label>
-  //       </>
-  //     ),
-  //     model_no: "Custom NM-1",
-  //     dimension: "W 2000x H1200xD600 ",
-  //     material: "Wood MDF",
-  //     color: "MGPU103",
-  //     quantity: "1",
-  //     description: (
-  //       <p className="text-xs text-left w-[200px]">
-  //         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-  //         eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum
-  //         suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
-  //         lacus vel facilisis.{" "}
-  //       </p>
-  //     ),
-  //     action: (
-  //       <div className="flex justify-center items-center gap-3">
-  //         <button className="text-white bg-red-500 w-[30px] h-[30px] flex justify-center items-center rounded-full">
-  //           <FaTimes />
-  //         </button>
-  //       </div>
-  //     ),
-  //   },
-  // ];
+  const [projectId, setProjectId] = React.useState(null);
+  const [project, setProject] = React.useState(null);
 
-  // const columns = [
-  //   {
-  //     title: "Item",
-  //     dataIndex: "item",
-  //     key: "item",
-  //   },
-  //   {
-  //     title: "File technique",
-  //     dataIndex: "file_technique",
-  //     key: "file_technique",
-  //   },
-  //   {
-  //     title: "Model NO.",
-  //     dataIndex: "model_no",
-  //     key: "model_no",
-  //   },
-  //   {
-  //     title: "Dimension(mm)",
-  //     dataIndex: "dimension",
-  //     key: "dimension",
-  //   },
-  //   {
-  //     title: "Material",
-  //     dataIndex: "material",
-  //     key: "material",
-  //   },
-  //   {
-  //     title: "Color",
-  //     dataIndex: "color",
-  //     key: "color",
-  //   },
-  //   {
-  //     title: "Quantity",
-  //     dataIndex: "quantity",
-  //     key: "quantity",
-  //   },
-  //   {
-  //     title: "",
-  //     dataIndex: "description",
-  //     key: "description",
-  //   },
-  //   {
-  //     title: "",
-  //     dataIndex: "action",
-  //     key: "action",
-  //   },
-  // ];
+  useEffect(() => {
+    const pId = localStorage.getItem("projectId");
+    setProjectId(pId);
+  }, []);
+
+  useEffect(() => {
+    projectId && fetch("https://sensar.vercel.app/api/v1/project/" + projectId)
+      .then((res) => res.json())
+      .then((res) => {
+        setProject(res);
+      });
+  }, [projectId]);
+
   return (
     <div>
       <div className="md:flex hidden justify-between items-center">
@@ -341,7 +99,62 @@ const Step2 = () => {
                 columns={columns}
               /> */}
             </div>
+
+            {
+              project?.projectDetails && <table className="table w-full mt-10 text-sm">
+                <thead>
+                  <tr>
+                    <th className="p-3 border-b">
+                      Item
+                    </th>
+                    <th className="p-3 border-b">
+                      Model
+                    </th>
+                    <th className="p-3 border-b">
+                      Dimension
+                    </th>
+                    <th className="p-3 border-b">
+                      Material
+                    </th>
+                    <th className="p-3 border-b">
+                      Quantity
+                    </th>
+                    <th className="w-[400px] text-left p-3 border-b">
+                      Decription
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {
+                    project && (
+                      <tr>
+                        <td className="text-center border-t p-3">
+                          {project?.data?.projectName}
+                        </td>
+                        <td className="text-center border-t p-3">
+                          {project?.projectDetails && project?.projectDetails?.productType + "-" + project?.projectDetails?.collection}
+                        </td>
+                        <td className="text-center border-t p-3">
+                          {project?.projectDetails && project?.projectDetails?.dimension}
+                        </td>
+                        <td className="text-center border-t p-3">
+                          {project?.projectDetails && project?.projectDetails?.material}
+                        </td>
+                        <td className="text-center border-t p-3">
+                          {project?.projectDetails && project?.projectDetails?.quantity}
+                        </td>
+                        <td className="text-left border-t p-3">
+                          {project?.data?.projectDescription ? project?.data?.projectDescription : "No description"}
+                        </td>
+                      </tr>
+                    )
+                  }
+                </tbody>
+              </table>
+            }
           </div>
+
+
 
           <div className="text-center mt-10">
             <button

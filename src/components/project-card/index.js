@@ -4,6 +4,7 @@ import { FaEllipsisH } from "react-icons/fa";
 import { Dropdown } from "antd";
 import noLogo from "../../assets/img/no_logo.png";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 
 
@@ -34,15 +35,15 @@ const ProjectCard = ({ project }) => {
     {
       key: "1",
       label: (
-        <a target="_blank" rel="noopener noreferrer" href="/">
+        <Link rel="noopener noreferrer" to={`/project/view/${project._id}`}>
           View
-        </a>
+        </Link>
       ),
     },
     {
       key: "2",
       label: (
-        <a target="_blank" rel="noopener noreferrer" href="/">
+        <a>
           Edit Product
         </a>
       ),
@@ -50,7 +51,7 @@ const ProjectCard = ({ project }) => {
     {
       key: "3",
       label: (
-        <a target="_blank" rel="noopener noreferrer" href="/">
+        <a>
           Status Proof
         </a>
       ),

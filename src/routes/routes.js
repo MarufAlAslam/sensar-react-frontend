@@ -25,6 +25,7 @@ import Invoice from "../pages/invoice";
 import SelectProductCollection from "../pages/select-product-collection";
 import ProductCategories from "../pages/product-categories";
 import AddProductCategory from "../pages/add-product-category";
+import ViewProject from "../pages/view-project";
 
 const router = createBrowserRouter([
   {
@@ -75,6 +76,10 @@ const router = createBrowserRouter([
         path: "/projects/add-new/custom-product",
         element: <CustomProduct />,
       },
+      {
+        path: "/project/view/:id",
+        element: <ViewProject />,
+      },
 
       {
         path: "/products/all-products",
@@ -119,6 +124,10 @@ const router = createBrowserRouter([
       {
         path: "/material/add-single",
         element: <AddNewMaterial />,
+      },
+      {
+        path: "/material/add-multiple",
+        element:  "Multiple Material",
       },
       {
         path: "/material/categories",
