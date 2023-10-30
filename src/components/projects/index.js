@@ -1,18 +1,5 @@
 import React, { useEffect } from "react";
 
-// import customer1 from "../../assets/img/customer1.png";
-// import customer2 from "../../assets/img/customer2.png";
-// import customer3 from "../../assets/img/customer3.png";
-// import customer4 from "../../assets/img/customer4.png";
-// import customer5 from "../../assets/img/customer5.png";
-// import customer6 from "../../assets/img/customer6.png";
-// import customer7 from "../../assets/img/customer7.png";
-// import customer8 from "../../assets/img/customer8.png";
-// import customer9 from "../../assets/img/customer9.png";
-// import customer10 from "../../assets/img/customer10.png";
-// import customer11 from "../../assets/img/customer11.png";
-// import customer12 from "../../assets/img/customer12.png";
-// import supplier from "../../assets/img/supplier.png";
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
 import ProjectCard from "../project-card";
 
