@@ -5,46 +5,60 @@ import { Link } from "react-router-dom";
 import { Dropdown } from "antd";
 import product1 from "../../assets/img/product1.png";
 
-const items = [
-  {
-    key: "1",
-    label: (
-      <a target="_blank" rel="noopener noreferrer" href="/">
-        View
-      </a>
-    ),
-  },
-  {
-    key: "2",
-    label: (
-      <a target="_blank" rel="noopener noreferrer" href="/">
-        Edit Product
-      </a>
-    ),
-  },
-  {
-    key: "3",
-    label: (
-      <a target="_blank" rel="noopener noreferrer" href="/">
-        Status Proof
-      </a>
-    ),
-  },
-  {
-    key: "4",
-    danger: true,
-    label: "Delete",
-  },
-];
+
 
 const ProductCard = ({ product }) => {
   const [supplierLoading, setSupplierLoading] = React.useState(true);
   const [supplier, setSupplier] = React.useState([]);
   // const [loading, setLoading] = React.useState(true);
 
+
+  const items = [
+    {
+      key: "1",
+      label: (
+        <a target="_blank" rel="noopener noreferrer" href="/">
+          View
+        </a>
+      ),
+    },
+    {
+      key: "2",
+      label: (
+        <a target="_blank" rel="noopener noreferrer" href="/">
+          Edit Product
+        </a>
+      ),
+    },
+    {
+      key: "3",
+      label: (
+        <a target="_blank" rel="noopener noreferrer" href="/">
+          Status Proof
+        </a>
+      ),
+    },
+    {
+      key: "4",
+      danger: true,
+      label: "Delete",
+      onClick: () => {
+        fetch("https://sensar.vercel.app/api/v1/product/" + product._id, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((res) => {
+            console.log(res);
+            window.location.reload();
+          });
+      }
+    },
+  ];
+
   const supplierId = product.supplier;
-  console.log(supplierId);
+  // console.log(supplierId);
   useEffect(() => {
+    setSupplierLoading(true);
     fetch("https://sensar.vercel.app/api/v1/supplier/" + supplierId)
       .then((res) => res.json())
       .then((res) => {
@@ -77,7 +91,7 @@ const ProductCard = ({ product }) => {
       <p className="text-blue text-lg font-bold">{product.productName}</p>
       <p className="text-sm text-[#a098ae]">
         {!supplierLoading &&
-          supplier?.data?.firstName + " " + supplier?.data?.lastName}
+          supplier?.firstName + " " + supplier?.lastName}
       </p>
 
       <div className="links w-full mt-5 flex gap-4 justify-center items-center">

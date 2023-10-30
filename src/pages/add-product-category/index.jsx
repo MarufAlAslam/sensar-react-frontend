@@ -9,7 +9,7 @@ const AddProductCategory = () => {
     // const [imgUrl, setImgUrl] = React.useState(null);
     const [categoryName, setCategoryName] = React.useState(null);
     const [subCategories, setSubCategories] = React.useState([]);
-    const [previousData, setPreviousData] = React.useState([]);
+    // const [previousData, setPreviousData] = React.useState([]);
 
     useEffect(() => {
         console.log(subCategories);
@@ -52,7 +52,7 @@ const AddProductCategory = () => {
 
         setSubCategories(prvData);
 
-        localStorage.setItem("subcategories", JSON.stringify(previousData));
+        // localStorage.setItem("subcategories", JSON.stringify(previousData));
 
         Swal.fire({
             icon: "success",
