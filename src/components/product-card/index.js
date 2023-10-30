@@ -87,7 +87,7 @@ const ProductCard = ({ product }) => {
           </a>
         </Dropdown>
       </div>
-      <img src={product1} className="block mx-auto mb-5 w-[80px]" alt="" />
+      <img src={product?.logo} className="block mx-auto mb-5 w-[80px]" alt="" />
       <p className="text-blue text-lg font-bold">{product.productName}</p>
       <p className="text-sm text-[#a098ae]">
         {!supplierLoading &&

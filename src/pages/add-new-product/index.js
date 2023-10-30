@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { FaBell, FaCog, FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -6,12 +7,35 @@ import Swal from "sweetalert2";
 const AddNewProduct = () => {
   const [collections, setCollections] = useState([]);
   const [suppliers, setSuppliers] = useState([]);
+  const [logoUrl, setLogoUrl] = React.useState(null);
+  const handleLogoUpload = (e) => {
+    const payload = new FormData();
+    payload.append("image", e.target.files[0]);
+
+    axios
+      .post(
+        "https://api.imgbb.com/1/upload?key=bcc56bad76ece711720725d2a509d3dc",
+        payload
+      )
+      .then((response) => {
+        // console.log("response", response);
+        // console.log("response url", response.data.data.image.url);
+        setLogoUrl(response.data.data.image.url);
+        // console.log("success");
+      })
+      .catch((error) => {
+        console.log("error", error);
+        alert("try another image agian");
+      });
+    // imgbbUploader()
+  };
+
   const handleAddNewProduduct = (e) => {
     e.preventDefault();
 
     const form = e.target;
 
-    const logo = form.logo.files[0];
+    const logo = logoUrl;
     const productName = form.productName.value;
     const reference = form.reference.value;
     const supplier = form.supplier.value;
@@ -121,11 +145,13 @@ const AddNewProduct = () => {
                 htmlFor="logo"
                 className="logo-uploader block text-center mt-4"
               >
-                <input type="file" name="logo" id="logo" />
+                <input type="file" name="logo" id="logo" onChange={handleLogoUpload} />
                 <span className="text-sm text-gray-400">
                   Drag and drop or click here to select file
                 </span>
               </label>
+
+              <img src={logoUrl} className="w-3/4 mt-5 mx-auto" alt="" />
             </div>
             <div className="lg:w-[5/12] md:w-[1/2] w-full">
               <div className="form-group">
