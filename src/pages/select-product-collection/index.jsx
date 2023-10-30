@@ -1,7 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import collection1 from "../../assets/img/collection2.png"
 
 const SelectProductCollection = () => {
+    const [collections, setCollections] = React.useState([])
+
+    useEffect(() => {
+        fetch("https://sensar.vercel.app/api/v1/product-categories", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then((res) => res.json())
+            .then((res) => {
+                setCollections(res);
+            });
+    }, []);
+
+    const getSubCategories = (e) => {
+        alert(e.target.value)
+    }
     return (
         <div>
             <h2 className='text-blue'>
@@ -16,30 +34,20 @@ const SelectProductCollection = () => {
                 </h2>
                 <div className="my-4 text-center">
                     <div className="inline-flex justify-center items-center gap-4 p-2 border border-black">
-                        <div className="flex items-center type-radio">
-                            <input type="radio" name="productType" defaultChecked value={"Desk/Workstation"} id="type1" />
-                            <label htmlFor="type1" className='cursor-pointer'>Desk/Workstation</label>
-                        </div>
-                        <span>|</span>
-                        <div className="flex items-center type-radio">
-                            <input type="radio" name="productType" value={"Sofa"} id="type2" />
-                            <label htmlFor="type2" className='cursor-pointer'>Sofa</label>
-                        </div>
-                        <span>|</span>
-                        <div className="flex items-center type-radio">
-                            <input type="radio" name="productType" value={"Chair"} id="type3" />
-                            <label htmlFor="type3" className='cursor-pointer'>Chair</label>
-                        </div>
-                        <span>|</span>
-                        <div className="flex items-center type-radio">
-                            <input type="radio" name="productType" value={"Silence Booth"} id="type4" />
-                            <label htmlFor="type4" className='cursor-pointer'>Silence Booth</label>
-                        </div>
-                        <span>|</span>
-                        <div className="flex items-center type-radio">
-                            <input type="radio" name="productType" value={"{Partition}"} id="type5" />
-                            <label htmlFor="type5" className='cursor-pointer'>Partition</label>
-                        </div>
+                        {
+                            collections.map((collection, index) => {
+                                return (
+                                    <div className="flex flex-wrap items-center type-radio">
+                                        <input type="radio" name="productType" onChange={getSubCategories} defaultChecked value={collection._id} id={`type${index}`} />
+                                        <label htmlFor={`type${index}`} className='cursor-pointer'>{collection.nameCategory}</label>
+
+                                        {/* display a | if the collection is not the last one */}
+                                        {index !== collections.length - 1 && <span className='ml-4'>|</span>}
+                                    </div>
+                                )
+                            }
+                            )
+                        }
                     </div>
                 </div>
 
