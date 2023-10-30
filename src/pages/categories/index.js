@@ -79,6 +79,7 @@ const Categories = () => {
           <Collapse
             items={items}
             defaultActiveKey={["1"]}
+            accordion
             onChange={onChange}
             className="bg-white border-none shadow-none rounded-0"
           />
