@@ -97,6 +97,10 @@ const router = createBrowserRouter([
         element: <AddProductCategory />,
       },
       {
+        path: "/products/add-multiple",
+        element: "Add Multiple Product",
+      },
+      {
         path: "/material",
         element: <Materials />,
       },

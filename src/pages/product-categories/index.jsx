@@ -1,7 +1,8 @@
 import { Collapse } from "antd";
 import React, { useEffect, useState } from "react";
-import { FaBell, FaCog, FaPlus, FaUser } from "react-icons/fa";
+import { FaBell, FaCog, FaPlus, FaTrashAlt, FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const ProductCategories = () => {
     const [categories, setCategories] = useState([]);
@@ -20,12 +21,54 @@ const ProductCategories = () => {
 
     console.log(categories);
 
+    const deleteCategory = (id) => {
+        fetch(`https://sensar.vercel.app/api/v1/product-category/${id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then((res) => res.json())
+            .then((res) => {
+                console.log(res);
+                setCategories(categories.filter((cat) => cat._id !== id));
+
+                Swal.fire({
+                    icon: "success",
+                    title: "Category deleted successfully",
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
+            })
+            .catch((err) => console.log(err));
+    }
+
+
+
     const items = categories.map((category) => {
         return {
             key: category._id,
-            label: category.nameCategory,
+            label: (
+                <div className="flex w-full justify-between pr-10">
+                    <span>{category.nameCategory}</span>
+                    <button
+                        onClick={() => deleteCategory(category._id)}
+                        className="hover:bg-red-100 px-2"
+                    >
+                        <FaTrashAlt className="text-red-500" />
+                    </button>
+                </div>
+            ),
             children: category.subCategory
-                ? category.subCategory.map((subCategory) => <p>{subCategory.subcategory}</p>) : "No Subcategory"
+                ? category.subCategory.map((subCategory) => (
+                    <div className="flex justify-between items-center">
+                        <div>
+                            - {" "}
+                            <span>{subCategory.subcategory}</span>
+                        </div>
+                    </div>
+                ))
+                : "No Subcategory",
         };
     });
 
